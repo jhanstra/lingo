@@ -1,0 +1,24 @@
+<div ng-show="inputMode" ng-class="" class="input-word-form">
+  <h2>Add a Word</h2>
+  <form>
+      <input ng-model="entry.word" type="text" placeholder="word"><br>
+      <textarea ng-model="entry.definition" type="textarea" class="definition-input" placeholder="definition"></textarea><br>
+      <button class="btn btn-primary btn-success submit-word" ng-click="submitEntry()">Save Word</button>
+  </form>
+</div>
+<div class="dictionary-container">
+  <div class="page-header-container">
+    <div class="dictionary-header-div">
+      <h1 class="dictionary-header">My Dictionary</h1>
+    </div>
+    <div class="add-word">
+      <button class="btn btn-primary" ng-click="inputMode = !inputMode" ng-class="{true: 'float-down'}[inputMode == true]">+ Add words</button>
+    </div>
+  </div>
+  <div class="dictionary-content">
+    <div ng-repeat="entry in entries | orderBy:'word' | filter:{word:search_term}" class="entry">
+      <h3>{{entry.word}}</h3>
+      <p>{{entry.definition}} | <a ng-click="deleteEntry(entry)">delete</a></p>
+    </div>
+  </div>
+</div>

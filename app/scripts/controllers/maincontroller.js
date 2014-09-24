@@ -1,4 +1,3 @@
-module.exports = function($scope, $firebase) {
-  $scope.search_term = "fdsafdsa";
-
-};
+// module.exports = function($scope, $firebase) {
+//   $scope.search_term = "";
+// };

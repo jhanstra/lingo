@@ -1,45 +1,18 @@
 <!doctype html>
-<html ng-app="crowdefine">
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Crowdefine</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-
-
-
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
-  <body ng-controller="MainCtrl as mainCtrl">
+  <body ng-app="crowdefine">
+    <div ng-view></div>
+    <!--<script type="text/javascript" src="./bower_components/firebase/firebase.js"></script>-->
 
-    <div>
-      <input type="text" ng-model="search_term" class="top-search" placeholder="Search Crowdefine"></input>
-      <nav class="navbar navbar-transparent">
-
-          <ul class="nav navbar-nav">
-            <li><a href="index.html">crowdefine</a></li>
-            <li></li>
-            <li></li>
-          </ul>
-
-      </nav>
-
-    </div>
-    <div class="container-fluid cd-page">
-      <div class="row">
-        <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
-          <h1>{{ search_term }}
-          <div ng-repeat="word in words | filter:{ name:search_term }">
-            <span><h1>{{word.name}}</h1><h3>{{word.pos}}</h3>
-            <div ng-repeat="definition in definitions | orderBy: '-upvotes' ">
-              <div ng-show="{{definition.word_id == word.id }}">
-                <a href="#" ng-click="upvoteDef(definition.id)">upvote</a>
-                {{ definition.upvotes }} {{ definition.definition }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script src="../js/bundle.js"></script>
+    <script type="text/javascript" src="../js/bundle.js"></script>
+    <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-resource.js"></script>
   </body>
 </html>

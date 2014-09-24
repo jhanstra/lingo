@@ -1,4 +1,4 @@
-var words = [
+exports.words = [
   {
     id:1,
     name:'apple',
@@ -36,7 +36,7 @@ var words = [
     pos:'noun'
   }
 ];
-var definitions = [
+exports.definitions = [
   {
     id: 1,
     word_id:1,

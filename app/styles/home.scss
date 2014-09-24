@@ -1,0 +1,195 @@
+.row, .col-sm-10, .col-sm-2 {
+  margin:0px;
+  padding:0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight:200;
+  margin:0;
+  padding:0;
+}
+input, textarea {
+  border:none;
+  font-size:1.2em;
+}
+input:focus, textarea:focus {
+  outline:none;
+}
+
+ul {
+  list-style-type:none;
+}
+h3 {
+  color:#999;
+}
+.search {
+  background-color:#fff;
+  z-index:50;
+  position:fixed;
+  top:0px;
+}
+.top-search {
+  padding-top:0px;
+  font-size:4em;
+  text-align:center;
+  font-weight:200;
+  letter-spacing: -3px;
+  border:none;
+  border-bottom:8px solid #222;
+  width:100%;
+  font-family:'Helvetica Neue';
+  padding:0px;
+  color:#555;
+  position:fixed;
+  background-color:#fff;
+}
+.top-search::-webkit-input-placeholder {
+   color: #ddd;
+   font-weight:200;
+   font-size:.7em;
+   position:relative;
+   top:10px;
+}
+:-moz-placeholder { /* Firefox 18- */
+   color: red;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   color: red;
+}
+:-ms-input-placeholder {
+   color: red;
+}
+.top-search:focus {
+  outline:none;
+}
+.page {
+  position:relative;
+  top:76px;
+  z-index:10;
+}
+.message {
+  padding-top: 50px;
+  text-align: center;
+  font-size: 3em;
+  color: #777;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+.sidebar {
+  display:block;
+  background-color:#eee;
+  position:fixed;
+  top:70px;
+  border-radius:0px;
+  border-right:0px solid #ccc;
+  height:100%;
+  padding:0px;
+  margin:0px;
+  ul {
+    margin:20px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+    li {
+      display:block;
+      padding:10px 0px 10px 15px;
+      margin:0px;
+      font-size:1.1em;
+    }
+  }
+
+}
+.sidebar ul li:hover {
+  cursor:pointer;
+  background-color:#ccc;
+}
+.selected {
+  background-color:#b70101;
+  color:#b70101;
+}
+.sidebar
+.sidebar-link {
+  text-decoration: none;
+  color:#b70101;
+}
+.sidebar-link:hover {
+  text-decoration:none;
+  color:inherit;
+}
+
+.page-header-container {
+  width:100%;
+  box-sizing:border-box;
+  border-bottom:1px solid #eee;
+  display:block;
+  height:85px;
+}
+.dictionary-header-div {
+  width:60%;
+  display:block;
+  float:left;
+}
+.dictionary-header {
+  font-size:3em;
+  padding:10px;
+  margin:0px;
+  margin-top:15px;
+}
+.dictionary-container {
+  padding:0px 20px;
+}
+.add-word {
+  width:28%;
+  display:block;
+  float:right;
+  button {
+    padding:12px 35px;
+    border:none;
+    font-size:1.1em;
+    margin:20px 10px 0px 0px;
+    display:inline-block;
+    float:right;
+    position:fixed;
+    top:74px;
+    right:10px;
+  }
+  button:focus {
+    outline:none;
+  }
+}
+.input-word-form {
+  height:320px;
+  background-color:#bee1a0;
+  h2 {
+    padding:15px 0px 0px 15px;
+  }
+}
+.add-word .float-down {
+  position:absolute;
+  top:320px;
+}
+.input-word-form input, .input-word-form textarea {
+  background-color:#fff;
+  padding:5px;
+  margin:15px 0px 0px 15px;
+  font-size:1.7em;
+  width:50%;
+}
+.definition-input {
+  height:120px;
+}
+.submit-word {
+  padding:12px 20px;
+  margin:15px 0px 0px 15px;
+  font-size:1.2em;
+}
+.dictionary-content {
+  padding:20px 15px 20px;
+}
+.entry {
+  margin:3px 0px;
+}
+.entry h3 {
+  font-size:2.3em;
+}
+.entry p {
+  font-size:1.3em;
+}
