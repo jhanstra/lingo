@@ -35,7 +35,7 @@ gulp.task('lint', function() {
 
 // Browserify task
 gulp.task('browserify', function() {
-  // Single point of entry (make sure not to src ALL your files, browserify will figure it out for you)
+  // Single point of definition (make sure not to src ALL your files, browserify will figure it out for you)
   gulp.src(['app/scripts/app.js'])
   .pipe(browserify({
     insertGlobals: true,
@@ -54,6 +54,9 @@ gulp.task('views', function() {
   gulp.src('app/index.html')
   // And put it in the dist folder
   .pipe(gulp.dest('dist/'));
+  // Images
+  gulp.src('./app/images/**/*')
+  .pipe(gulp.dest('dist/images'));
 
   // Any other view files from app/views
   gulp.src('./app/views/**/*')

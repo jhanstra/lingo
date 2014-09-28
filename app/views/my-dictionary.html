@@ -1,10 +1,50 @@
-<div ng-controller="MyDictionaryCtrl as myCtrl" class="container-fluid">
-  <div class="search">
-    <input type="text" ng-model="search_term" class="top-search" placeholder="Search Crowdefine"></input>
-  </div>
+<div ng-controller="MyDictionaryCtrl as myCtrl">
   <div class="row page">
-    <sidebar class="col-sm-2"></sidebar>
-    <dictionary class="col-sm-10"></dictionary>
+    <sidebar class="sidebar col-sm-2 hidden-xs"></sidebar>
+    <div class="inner-page col-sm-10 col-xs-12">
+      <div ng-show="inputMode" ng-class="" class="input-word-form">
+        <h2>Add a Definition</h2>
+        <form>
+            <input ng-model="definition.word" type="text"  placeholder="word" ng-keydown="tabNext($event)" ng-click="word_search = !word_search" id="word-search"></input><br>
+            <div ng-show="word_search || definition.word.length == 1" class="word-selector">
+              <div ng-repeat="word in words | filter:{ content:definition.word } | orderBy:'content' | limitTo: 8" ng-class="{true: 'highlighted'}[$index == selected_index]">
+
+                <div ng-click="selectWord(word)" >
+                  <h3>{{ word.content }}</h3>
+                  <p>{{ word.part_of_speech }}</p>
+                </div>
+              </div>
+              <div ng-show="$index == null">
+                <h3>Create new word</h3>
+              </div>
+            </div>
+            <textarea ng-model="definition.content" type="textarea" class="definition-input" placeholder="definition"></textarea><br>
+            <button class="btn btn-primary btn-success submit-word" ng-click="submitDefinition()">Save Definition</button>
+        </form>
+      </div>
+      <div class="dictionary-container">
+        <div class="page-header-container">
+          <div class="dictionary-header-div">
+            <h1 class="dictionary-header">My Dictionary</h1>
+          </div>
+          <div class="add-word">
+            <button class="btn btn-primary" ng-click="inputMode = !inputMode" ng-class="{true: 'float-down'}[inputMode == true]">+ Add Definitions</button>
+          </div>
+        </div>
+        <div class="dictionary-content">
+          <!-- <form>
+              <input ng-model="word.content" type="text" placeholder="word"><br>
+              <button class="btn btn-primary btn-success submit-word" ng-click="submitWord()">Save Word</button>
+          </form>
+        </div> -->
+          <div ng-repeat="def in definitions" class="card">
+            <h3>{{def.word}}</h3>
+            <p>{{def.content}} | <a ng-click="deleteDefinition(def)">delete</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </div>

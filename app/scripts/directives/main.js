@@ -7,13 +7,12 @@ app.directive('sidebar', function() {
   };
 });
 
-app.directive('dictionary', function() {
+app.directive('search', function() {
   return {
     restrict: 'E',
-    templateUrl: "views/partials/dictionary.html"
+    templateUrl: "views/partials/search.html"
   }
 });
-
 
 
 module.exports = app;

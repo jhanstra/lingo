@@ -1,9 +1,8 @@
-<nav class="col-sm-2 sidebar">
-
-    <ul class="">
-      <li class="sidebar-list-item"><a href="/" class="sidebar-link">My Dictionary</a></li>
-      <li class="sidebar-list-item"><a href="/crowd" class="sidebar-link">Crowd Dictionary</a></li>
-      <li class="sidebar-list-item"><a href="/" class="sidebar-link">Settings</a></li>
-    </ul>
-
+<nav ng-controller="SidebarCtrl as sidebarCtrl">
+  <ul class="">
+    <li class="sidebar-list-item" ng-click="goTo('/')" ng-class="{true: 'selected'}[$location.path() == '/']"><p class="sidebar-link">{{test}}My Dictionary</p></li>
+    <li class="sidebar-list-item" ng-click="goTo('/global')"><p class="sidebar-link">Global Dictionary</p></li>
+    <li class="sidebar-list-item" ng-click="goTo('/profile')"><p class="sidebar-link">My Profile</p></li>
+    <li class="sidebar-list-item" ng-click="goTo('/words')"><p class="sidebar-link">Word Center</p></li>
+  </ul>
 </nav>

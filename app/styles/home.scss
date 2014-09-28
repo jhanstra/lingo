@@ -1,3 +1,17 @@
+$primary: #f7de7b;
+$primary1: #fffa96;
+$primary2: #f7d036;
+$primary3: #ba9700;
+
+$secondary: #b70101;
+$green: #57e657;
+$white: #fff;
+$paper: url('../images/handmade-paper.png');
+
+body {
+  background-color:$primary1;
+  background-image:$paper;
+}
 .row, .col-sm-10, .col-sm-2 {
   margin:0px;
   padding:0px;
@@ -20,7 +34,7 @@ ul {
   list-style-type:none;
 }
 h3 {
-  color:#999;
+  color:#333;
 }
 .search {
   background-color:#fff;
@@ -32,32 +46,45 @@ h3 {
   padding-top:0px;
   font-size:4em;
   text-align:center;
-  font-weight:200;
+  font-weight:500;
   letter-spacing: -3px;
   border:none;
-  border-bottom:8px solid #222;
+  border-bottom:8px solid $secondary;
   width:100%;
   font-family:'Helvetica Neue';
   padding:0px;
-  color:#555;
+  color:$secondary;
   position:fixed;
-  background-color:#fff;
+  background-color:$primary1;
+  background-image: $paper;
 }
 .top-search::-webkit-input-placeholder {
-   color: #ddd;
+   color: #999;
    font-weight:200;
    font-size:.7em;
    position:relative;
    top:10px;
 }
 :-moz-placeholder { /* Firefox 18- */
-   color: red;
+   color: #ddd;
+   font-weight:200;
+   font-size:.7em;
+   position:relative;
+   top:10px;
 }
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: red;
+   color: #ddd;
+   font-weight:200;
+   font-size:.7em;
+   position:relative;
+   top:10px;
 }
 :-ms-input-placeholder {
-   color: red;
+   color: #ddd;
+   font-weight:200;
+   font-size:.7em;
+   position:relative;
+   top:10px;
 }
 .top-search:focus {
   outline:none;
@@ -75,31 +102,40 @@ h3 {
   letter-spacing: -1px;
   font-weight: bold;
 }
-.sidebar {
-  display:block;
-  background-color:#eee;
+nav {
   position:fixed;
-  top:70px;
+  top:75px;
+  background-color:$primary;
+  background-image:$paper;
+  height:100%;
+  width:16.6666667%;
+}
+.sidebar {
+  background-color:#eee;
   border-radius:0px;
   border-right:0px solid #ccc;
   height:100%;
   padding:0px;
   margin:0px;
   ul {
-    margin:20px 0px 0px 0px;
+    margin:10px 0px 0px 0px;
     padding:0px 0px 0px 0px;
     li {
       display:block;
       padding:10px 0px 10px 15px;
       margin:0px;
       font-size:1.1em;
+      p {
+        margin:0;
+      }
     }
   }
 
 }
 .sidebar ul li:hover {
   cursor:pointer;
-  background-color:#ccc;
+  border-left:4px solid #900;
+  padding-left:11px;
 }
 .selected {
   background-color:#b70101;
@@ -112,15 +148,13 @@ h3 {
 }
 .sidebar-link:hover {
   text-decoration:none;
-  color:inherit;
 }
 
 .page-header-container {
-  width:100%;
-  box-sizing:border-box;
-  border-bottom:1px solid #eee;
+  border-bottom:1px solid $secondary;
   display:block;
   height:85px;
+  margin:0px 20px;
 }
 .dictionary-header-div {
   width:60%;
@@ -134,7 +168,8 @@ h3 {
   margin-top:15px;
 }
 .dictionary-container {
-  padding:0px 20px;
+  padding:0px;
+  z-index:15;
 }
 .add-word {
   width:28%;
@@ -157,7 +192,9 @@ h3 {
 }
 .input-word-form {
   height:320px;
-  background-color:#bee1a0;
+  background-color:$green;
+  background-image:$paper;
+  z-index:20;
   h2 {
     padding:15px 0px 0px 15px;
   }
@@ -184,12 +221,52 @@ h3 {
 .dictionary-content {
   padding:20px 15px 20px;
 }
-.entry {
+.definition {
   margin:3px 0px;
 }
-.entry h3 {
+.definition h3 {
   font-size:2.3em;
 }
-.entry p {
+.definition p {
   font-size:1.3em;
+}
+.word-selector {
+  width:50%;
+  margin:0px 0px 0px 15px;
+  background-color:#fff;
+  position:absolute;
+  background-color:#eee;
+  div {
+    // border-top:1px solid #ccc;
+    padding:3px 5px;
+  }
+}
+.word-selector div:hover {
+  cursor:pointer;
+  background-color:blue;
+}
+.highlighted {
+  background-color:blue;
+}
+.new-word-div {
+  margin:20px;
+  height:100px;
+  background-color:$primary;
+  background-image:$paper;
+  padding:10px;
+}
+.new-word {
+  width:50%;
+  min-width:200px;
+  margin:0 auto;
+  font-size:2em;
+  padding:5px;
+  text-align:center;
+}
+.card {
+  background-color:$primary;
+  background-image:$paper;
+  border-radius:5px;
+  padding:15px;
+  margin-bottom:10px;
 }
