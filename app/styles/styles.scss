@@ -1,12 +1,10 @@
 /******* TWITTER BOOTSTRAP *******/
 @import '../../bower_components/sass-bootstrap/lib/bootstrap';
 
-$primary: #ffca00;
-$primary1: #ffd534;
-$primary2: #f0be00;
-$primary3: #ba9700;
+/******* FONT AWESOME *******/
+@import '../../bower_components/font-awesome/scss/font-awesome';
 
-$secondary: #ff9500;
+
 
 @import 'home';
 @import 'normalize';

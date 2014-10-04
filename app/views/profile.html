@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="dictionary-content">
-        <div ng-repeat="definition in entries | orderBy:'word' | filter:{word:search_term}" class="definition">
+        <div ng-repeat="definition in entries | orderBy:'word' | filter:{word:searchTerm}" class="definition">
           <h3>{{definition.word}}</h3>
           <p>{{definition.definition}} | <a ng-click="deleteDefinition(definition)">delete</a></p>
         </div>

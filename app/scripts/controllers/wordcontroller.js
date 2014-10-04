@@ -1,5 +1,4 @@
 module.exports = function($rootScope, $scope, $location, Definition, Word) {
-  $rootScope.search_term = "";
   $scope.definitions = Definition.all;
   $scope.definition = {
     word_id:"",

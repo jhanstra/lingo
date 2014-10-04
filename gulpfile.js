@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     jshint = require('gulp-jshint'),
     browserify = require('gulp-browserify'),
+    uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     clean = require('gulp-clean'),
     embedlr = require('gulp-embedlr'),
@@ -10,6 +11,7 @@ var gulp = require('gulp'),
     express = require('express'),
     livereload = require('connect-livereload'),
     sass = require('gulp-sass'),
+    ngAnnotate = require('gulp-ng-annotate'),
     autoprefixer = require('gulp-autoprefixer'),
     livereloadport = 35729,
     serverport = 5000;
@@ -43,6 +45,9 @@ gulp.task('browserify', function() {
   }))
   // Bundle to a single file
   .pipe(concat('bundle.js'))
+  .pipe(ngAnnotate())
+  //.pipe(rename({suffix: '.min'}))
+  // .pipe(uglify())
   // Output it to our dist folder
   .pipe(gulp.dest('dist/js'))
   .pipe(refresh(lrserver));
@@ -57,6 +62,9 @@ gulp.task('views', function() {
   // Images
   gulp.src('./app/images/**/*')
   .pipe(gulp.dest('dist/images'));
+  // Fonts
+  gulp.src('./bower_components/font-awesome/fonts/**/*')
+  .pipe(gulp.dest('dist/fonts'));
 
   // Any other view files from app/views
   gulp.src('./app/views/**/*')
@@ -73,7 +81,7 @@ gulp.task('dev', function() {
   // Start live reload
   lrserver.listen(livereloadport);
   // Run the watch task, to keep taps on changes
-  gulp.run('watch');
+  gulp.watch();
 });
 
 // Styles task

@@ -1,8 +1,14 @@
-<nav ng-controller="SidebarCtrl as sidebarCtrl">
-  <ul class="">
-    <li class="sidebar-list-item" ng-click="goTo('/')" ng-class="{true: 'selected'}[$location.path() == '/']"><p class="sidebar-link">{{test}}My Dictionary</p></li>
-    <li class="sidebar-list-item" ng-click="goTo('/global')"><p class="sidebar-link">Global Dictionary</p></li>
-    <li class="sidebar-list-item" ng-click="goTo('/profile')"><p class="sidebar-link">My Profile</p></li>
-    <li class="sidebar-list-item" ng-click="goTo('/words')"><p class="sidebar-link">Word Center</p></li>
+<nav ng-controller="AuthCtrl as authCtrl">
+  <div class="title-box">
+    <h3 class="crowdefine-title">crowdefine</h3>
+  </div>
+  <ul>
+    <li class="sidebar-list-item" ng-click="goTo('/')"><p class="sidebar-link"><i class="fa fa-book"></i> My Dictionary</p></li>
+    <li class="sidebar-list-item" ng-click="goTo('/global')"><p class="sidebar-link"><i class="fa fa-globe"></i> Global Dictionary</p></li>
+    <li class="sidebar-list-item" ng-click="goTo('/profile')"><p class="sidebar-link"><i class="fa fa-cog"></i> My Profile - {{currentUser.users}}</p></li>
+    <li class="sidebar-list-item" ng-click="goTo('/words')"><p class="sidebar-link"><i class="fa fa-list"></i> Word Center</p></li>
+    <li class="sidebar-list-item" ng-show="!signedIn()" ng-click="goTo('/login')"><p class="sidebar-link"><i class="fa fa-search"></i> Log In</p></li>
+    <li class="sidebar-list-item" ng-show="!signedIn()" ng-click="goTo('/register')"><p class="sidebar-link"><i class="fa fa-search"></i> Register</p></li>
+    <li class="sidebar-list-item" ng-show="signedIn()" ng-click="logout()"><p class="sidebar-link"><i class="fa fa-arrow"></i> Log Out</p></li>
   </ul>
 </nav>

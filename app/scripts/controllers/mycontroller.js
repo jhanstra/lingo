@@ -1,37 +1,40 @@
 module.exports = function($rootScope, $scope, $location, Definition, Word) {
-  $rootScope.search_term = "";
   $scope.definitions = Definition.all;
   $scope.definition = {
-    word_id:"",
+    wordId:"",
     word:"",
     content:"",
-    user_id:"",
+    userId:"",
     namespace:[],
     isGlobal:"",
     upvotes:"",
     downvotes:"",
-    created_at:""
+    createdAt:""
   };
   $scope.words = Word.all;
   $scope.word = {
     content:"",
-    part_of_speech:"",
+    partOfSpeech:"",
     pronounciation:"",
     synonyms:[""],
-    anotnyms:[""],
+    antonyms:[""],
     rhymes:[""],
-    cover_photo:"",
-    words_of_same_spelling:[""],
+    coverPhoto:"",
+    wordsOfSameSpelling:[""],
     language:"english",
-    prereq_words:[""],
-    related_words:[""],
-    created_at:"",
+    prereqWords:[""],
+    relatedWords:[""],
+    createdAt:"",
     inventor:"",
     recognized:"",
-    top_definition:""
+    topDefinition:""
   };
 
   $scope.submitDefinition = function () {
+    // for ( var word in $scope.words ) {
+    //   if ( $scope.definition.word !==)
+    // }
+    // if ($scope.definition.word)
     Definition.create($scope.definition).then(function () {
       $scope.definition = {};
     });
@@ -49,28 +52,28 @@ module.exports = function($rootScope, $scope, $location, Definition, Word) {
     Word.delete(word);
   };
 
-  $scope.selected_index = 0;
-  $scope.word_search = false;
+  $scope.selectedIndex = 0;
+  $scope.wordSearch = false;
 
   $scope.selectWord = function(word) {
     // var word = $scope.words[$index];
     $scope.definition.word = word.content;
-    $scope.word_search = false;
+    $scope.wordSearch = false;
   }
 
   $scope.tabNext = function (e) {
     if (e.which == 9) {
       e.preventDefault();
-      $scope.selected_index++;
-      $scope.word_search = false;
+      $scope.selectedIndex++;
+      $scope.wordSearch = false;
     }
     if (e.which == 40) {
       e.preventDefault();
-      $scope.selected_index++;
+      $scope.selectedIndex++;
     }
     if (e.which == 38) {
       e.preventDefault();
-      $scope.selected_index--;
+      $scope.selectedIndex--;
     }
     if (e.which == 13) {
       $scope.definition.word = word.content;

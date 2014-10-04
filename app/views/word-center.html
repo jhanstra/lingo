@@ -9,7 +9,33 @@
           </div>
         </div>
         <div class="new-word-div card">
-          <input ng-model="word.content" placeholder="New word" class="new-word">
+          <h3>Word:</h3>
+          <input ng-model="word.content" class="new-word">
+          <h3>Part of speech:</h3>
+          <div class="radio-buttons">
+            <input ng-model="word.partOfSpeech" type="radio" name="pos" value="noun">
+            <label>Noun</label>
+            <input ng-model="word.partOfSpeech" type="radio" name="pos" value="verb">
+            <label>Verb</label>
+            <input ng-model="word.partOfSpeech" type="radio" name="pos" value="adjective">
+            <label>Adjective</label>
+            <input ng-model="word.partOfSpeech" type="radio" name="pos" value="adverb">
+            <label>Adverb</label>
+            <input ng-model="word.partOfSpeech" type="radio" name="pos" value="pronoun">
+            <label>Pronoun</label>
+            <input ng-model="word.partOfSpeech" type="radio" name="pos" value="preposition">
+            <label>Preposition</label>
+            <input ng-model="word.partOfSpeech" type="radio" name="pos" value="conjunction">
+            <label>Conjunction</label>
+            <input ng-model="word.partOfSpeech" type="radio" name="pos" value="interjection">
+            <label>Interjection</label>
+          </div>
+          <br>
+          <button class="btn btn-success" ng-click="submitWord()">Submit Word</button>
+
+        </div>
+        <div class="wordlist card">
+        <p ng-repeat="word in words"><a href="">{{ word.content }}</a> | <a href="" ng-click="deleteWord(word)">delete</a></p>
         </div>
       </div>
     </div>

@@ -1,16 +1,18 @@
-$primary: #f7de7b;
-$primary1: #fffa96;
-$primary2: #f7d036;
-$primary3: #ba9700;
+// $primary: #f7de7b;
+// $primary1: #fffa96;
+// $primary2: #f7d036;
+// $primary3: #ba9700;
+$primary: #eee;
+$primary1: #fdfdfd;
+$primary2: #ccc;
 
 $secondary: #b70101;
-$green: #57e657;
+$green: #999;
 $white: #fff;
 $paper: url('../images/handmade-paper.png');
 
 body {
   background-color:$primary1;
-  background-image:$paper;
 }
 .row, .col-sm-10, .col-sm-2 {
   margin:0px;
@@ -29,12 +31,18 @@ input, textarea {
 input:focus, textarea:focus {
   outline:none;
 }
+label {
+  padding-right:10px;
+}
 
 ul {
   list-style-type:none;
 }
 h3 {
   color:#333;
+}
+.btn {
+  border:none;
 }
 .search {
   background-color:#fff;
@@ -56,17 +64,16 @@ h3 {
   color:$secondary;
   position:fixed;
   background-color:$primary1;
-  background-image: $paper;
 }
 .top-search::-webkit-input-placeholder {
-   color: #999;
+   color: $secondary;
    font-weight:200;
    font-size:.7em;
    position:relative;
    top:10px;
 }
 :-moz-placeholder { /* Firefox 18- */
-   color: #ddd;
+   color:$secondary;
    font-weight:200;
    font-size:.7em;
    position:relative;
@@ -109,6 +116,16 @@ nav {
   background-image:$paper;
   height:100%;
   width:16.6666667%;
+  .fa {
+    font-size:1.5em;
+    padding-right:8px;
+  }
+  hr {
+    width:90%;
+    position:relative;
+    left:5%;
+    border-top:$secondary;
+  }
 }
 .sidebar {
   background-color:#eee;
@@ -138,13 +155,13 @@ nav {
   padding-left:11px;
 }
 .selected {
-  background-color:#b70101;
-  color:#b70101;
+  background-color:$secondary;
+  color:$secondary;
 }
 .sidebar
 .sidebar-link {
   text-decoration: none;
-  color:#b70101;
+  color:$secondary;
 }
 .sidebar-link:hover {
   text-decoration:none;
@@ -191,9 +208,8 @@ nav {
   }
 }
 .input-word-form {
-  height:320px;
+  height:400px;
   background-color:$green;
-  background-image:$paper;
   z-index:20;
   h2 {
     padding:15px 0px 0px 15px;
@@ -201,7 +217,7 @@ nav {
 }
 .add-word .float-down {
   position:absolute;
-  top:320px;
+  top:400px;
 }
 .input-word-form input, .input-word-form textarea {
   background-color:#fff;
@@ -218,9 +234,7 @@ nav {
   margin:15px 0px 0px 15px;
   font-size:1.2em;
 }
-.dictionary-content {
-  padding:20px 15px 20px;
-}
+
 .definition {
   margin:3px 0px;
 }
@@ -243,30 +257,50 @@ nav {
 }
 .word-selector div:hover {
   cursor:pointer;
-  background-color:blue;
+  background-color:#3070f0;
 }
 .highlighted {
-  background-color:blue;
+  background-color:#3070f0;
+  color:#fff;
 }
 .new-word-div {
-  margin:20px;
-  height:100px;
   background-color:$primary;
   background-image:$paper;
   padding:10px;
+  h3 {
+    margin:15px 0px 5px;
+  }
 }
 .new-word {
-  width:50%;
-  min-width:200px;
+  width:200px;
   margin:0 auto;
   font-size:2em;
   padding:5px;
-  text-align:center;
 }
 .card {
   background-color:$primary;
-  background-image:$paper;
   border-radius:5px;
   padding:15px;
-  margin-bottom:10px;
+  margin:10px 20px;
+
+}
+.inner {
+  background-color:#ddd;
+  margin:10px 0px;
+}
+.crowdefine-title {
+  text-align:center;
+  margin:20px 0px 12px;
+  font-weight:100;
+  color:$secondary;
+}
+.title-box {
+  border-bottom:1px solid $secondary;
+  width:70%;
+  position:relative;
+  left:15%;
+}
+.radio-buttons {
+  width:100px;
+  display:inline;
 }
