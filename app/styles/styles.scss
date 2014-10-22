@@ -4,8 +4,7 @@
 /******* FONT AWESOME *******/
 @import '../../bower_components/font-awesome/scss/font-awesome';
 
-
-
-@import 'home';
-@import 'normalize';
-@import 'animations';
+@import 'variables';
+@import 'main';
+@import 'sidebar';
+@import 'search';

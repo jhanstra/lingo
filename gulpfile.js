@@ -13,6 +13,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     ngAnnotate = require('gulp-ng-annotate'),
     autoprefixer = require('gulp-autoprefixer'),
+    scsslint = require('gulp-scss-lint'),
     livereloadport = 35729,
     serverport = 5000;
 
@@ -74,6 +75,12 @@ gulp.task('views', function() {
 
 });
 
+// // Lint SCSS
+// gulp.task('scss-lint', function() {
+//   gulp.src('app/styles/*.scss')
+//     .pipe(scsslint());
+// });
+
 // Dev task
 gulp.task('dev', function() {
   // Start webserver
@@ -86,12 +93,9 @@ gulp.task('dev', function() {
 
 // Styles task
 gulp.task('styles', function() {
-  gulp.src('app/styles/*.scss')
+  gulp.src('app/styles/styles.scss')
   // The onerror handler prevents Gulp from crashing when you make a mistake in your SASS
-  .pipe(sass({
-    onError: function(e) { console.log(e); },
-    sourceComments: 'map'
-    }))
+  .pipe(sass({ errLogToConsole: true, sourceComments: 'map', sourceMap: 'sass' }))
   // Optionally add autoprefixer
   .pipe(autoprefixer("last 2 versions", "> 1%", "ie 8"))
   // These last two should look familiar now :)

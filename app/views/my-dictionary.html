@@ -1,20 +1,20 @@
 <div ng-controller="MyDictionaryCtrl as myCtrl">
   <div class="row page">
-    <sidebar class="sidebar col-sm-2 hidden-xs"></sidebar>
-    <div class="inner-page col-sm-10 col-xs-12">
-      <div ng-show="inputMode" ng-class="" class="input-word-form">
+    <sidebar class="sidebar col-sm-1 hidden-xs"></sidebar>
+    <div class="inner-page col-sm-8 col-sm-offset-1 col-xs-12">
+      <!-- <div ng-show="inputMode" ng-class="" class="input-word-form">
         <h2>Add a Definition</h2>
         <form>
-            <input ng-model="definition.word" type="text"  placeholder="word" ng-keydown="tabNext($event)" ng-click="wordSearch = !wordSearch" id="word-search"></input><br>
+            <input ng-model="definition.word" type="text"  placeholder="word" ng-keydown="tabNext(\$event)" ng-click="wordSearch = !wordSearch" id="word-search"></input><br>
             <div ng-show="wordSearch || definition.word.length == 1" class="word-selector">
-              <div ng-repeat="word in words | filter:{ content:definition.word } | orderBy:'content' | limitTo: 8" ng-class="{true: 'highlighted'}[$index == selectedIndex]">
+              <div ng-repeat="word in words | filter:{ content:definition.word } | orderBy:'content' | limitTo: 8" ng-class="{true: 'highlighted'}[\$index == selectedIndex]">
 
                 <div ng-click="selectWord(word)" >
                   <h3>{{ word.content }}</h3>
                   <p>{{ word.partOfSpeech }}</p>
                 </div>
               </div>
-              <div ng-show="$index == null">
+              <div ng-show="\$index == null">
                 <h3>Create new word</h3>
               </div>
             </div>
@@ -26,15 +26,14 @@
             <label>No</label>
             <button class="btn btn-primary btn-success submit-word" ng-click="submitDefinition()">Save Definition</button>
         </form>
-      </div>
+      </div> -->
       <div class="dictionary-container">
         <div class="page-header-container">
           <div class="dictionary-header-div">
-            <h1 class="dictionary-header">My Dictionary</h1>
           </div>
-          <div class="add-word">
+          <!-- <div class="add-word">
             <button class="btn btn-primary" ng-click="inputMode = !inputMode" ng-class="{true: 'float-down'}[inputMode == true]">+ Add Definitions</button>
-          </div>
+          </div> -->
         </div>
         <div class="dictionary-content">
           <!-- <form>

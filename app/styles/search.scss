@@ -1,0 +1,52 @@
+.search {
+  background:transparent;
+  z-index:50;
+  position:fixed;
+  top:0px;
+}
+.top-search {
+  font-size:3em;
+  text-align:center;
+  font-weight:500;
+  letter-spacing: -1px;
+  border:none;
+  border-bottom:4px solid $white;
+  width:100%;
+  font-family:'Helvetica Neue';
+  padding:5px 0px;
+  color:$text;
+  position:fixed;
+  background:$white;
+  opacity:0.8;
+}
+.top-search::-webkit-input-placeholder {
+   color: $text;
+   font-weight:200;
+   font-size:.7em;
+   position:relative;
+   top:10px;
+}
+:-moz-placeholder { /* Firefox 18- */
+   color:$text;
+   font-weight:200;
+   font-size:.7em;
+   position:relative;
+   top:10px;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   color: $text;
+   font-weight:200;
+   font-size:.7em;
+   position:relative;
+   top:10px;
+}
+:-ms-input-placeholder {
+   color: $text;
+   font-weight:200;
+   font-size:.7em;
+   position:relative;
+   top:10px;
+}
+.top-search:focus {
+  outline:none;
+}
