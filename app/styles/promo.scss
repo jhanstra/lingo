@@ -1,0 +1,55 @@
+.promo-page {
+  h1 {
+    font-size:2.5em;
+    color:$white;
+    text-align:center;
+    font-weight:200;
+    margin:50px auto 30px;
+  }
+  h3 {
+    font-size:1.4em;
+    color:$white;
+    text-align:center;
+    font-weight:100;
+    margin:0 auto 30px;
+  }
+  .form-container {
+    width:100%;
+    text-align:center;
+    margin:0 auto;
+    display:block;
+    position:relative;
+    div {
+      display:inline-block;
+      float:left;
+      width:50%;
+      padding:20px;
+    }
+    h3 {
+      display:inline;
+      padding-bottom:10px;
+      border-bottom:1px solid $white;
+      margin-bottom:30px;
+    }
+    form {
+      margin:30px 0px;
+    }
+    input {
+      height:2em;
+      font-size:1.5em;
+      line-height:1em;
+      font-weight:200;
+      padding:12px 12px 12px 15px;
+      background-color:rgba(255,255,255,0.2);
+      border:none;
+      color:$white;
+    }
+    input::-webkit-input-placeholder {
+      color:$white;
+    }
+    input:focus {
+      outline: none;
+      border:1px solid #0073ed;
+    }
+  }
+}

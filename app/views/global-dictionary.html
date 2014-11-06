@@ -1,29 +1,29 @@
 <div ng-controller="MyDictionaryCtrl as myCtrl">
+  <header><div></div></header>
   <div class="row page">
-  <sidebar class="sidebar col-sm-1 hidden-xs"></sidebar>
-  <div class="inner-page col-sm-10 col-xs-12">
-    <div ng-show="inputMode" ng-class="" class="input-word-form">
+  <sidebar class="sidebar col-sm-2 hidden-xs"></sidebar>
+  <div class="inner-page col-sm-8 col-xs-12">
+    <!-- <div ng-show="inputMode" ng-class="" class="input-word-form">
       <h2>Add a Word</h2>
       <form>
           <input ng-model="definition.word" type="text" placeholder="word"><br>
           <textarea ng-model="definition.definition" type="textarea" class="definition-input" placeholder="definition"></textarea><br>
           <button class="btn btn-primary btn-success submit-word" ng-click="submitDefinition()">Save Word</button>
       </form>
-    </div>
+    </div> -->
     <div class="dictionary-container">
       <div class="page-header-container">
-        <div class="dictionary-header-div">
-          <h1 class="dictionary-header">Global Dictionary</h1>
-        </div>
-        <div class="add-word">
+          <h1>Global Dictionary {{ searchTerm }}</h1>
+        <!-- <div class="add-word">
           <button class="btn btn-primary" ng-click="inputMode = !inputMode" ng-class="{true: 'float-down'}[inputMode == true]">+ Add words</button>
-        </div>
+        </div> -->
       </div>
       <div class="dictionary-content">
         <div ng-repeat="word in words | orderBy:'content' | filter:{content:searchTerm}" class="definition card">
           <span><h3>{{word.content}}</h3><p>{{word.partOfSpeech}}</p>
           <div ng-repeat="definition in definitions" x>
             <p ng-show="word.content === definition.word" class="card inner">{{ definition.content }}</p>
+            <p>{{ definition.$id }}</p>
           </div>
         </div>
         <!-- <div ng-repeat="definition in definitions | orderBy:'word' | filter:{word:searchTerm}" class="definition card" ng-show="definition.isGlobal">

@@ -1,6 +1,5 @@
 nav {
   position:fixed;
-  top:75px;
   height:100%;
   z-index:1000;
   .fa {
@@ -11,19 +10,15 @@ nav {
   width:70px;
   height:100%;
   position:fixed;
-  opacity:0.7;
-  background-color:#222;
-  top:75px;
-  left:10px;
+  background-color:rgba(0,0,0,0.7);
   border-top-right-radius:4px;
-  border-top-left-radius:4px;
 }
 .sidebar {
   height:100%;
   padding:0px;
   margin:0px;
   ul {
-    margin:10px 0px 0px 10px;
+    margin:10px 0px 0px 0px;
     padding:0px 0px 0px 0px;
     li {
       display:table;
@@ -65,6 +60,14 @@ nav {
   color:$white;
   opacity:1;
 }
+#search-item {
+  border-color:$menu0;
+  color:$menu0;
+}
+#search-item:hover {
+  background-color:$menu0;
+  color:$white;
+}
 #home-item {
   border-color:$menu1;
   color:$menu1;
@@ -74,23 +77,24 @@ nav {
   color:$white;
 }
 #mydictionary-item {
-  border-color:$white;
-  background-color:rgba(0,0,0,0.3);
-  background-image:$feather;
-  background-size:500%;
-  color:$white;
+  border-color:$menu2;
+/*   background-color:rgba(0,0,0,0.3);
+background-image:\$feather;
+background-size:500%; */
+  color:$menu2;
 }
 #mydictionary-item:hover {
   color:$white;
-  background-size:100%;
-}
+  background-color:$menu2
+/*   background-size:100%;
+ */}
 #global-item {
   border-color:$menu3;
   color:$menu3;
 }
 #global-item:hover {
   background-color:$menu3;
-  color:$white
+  color:$white;
 }
 #profile-item {
   border-color:$menu4;
@@ -98,7 +102,7 @@ nav {
 }
 #profile-item:hover {
   background-color:$menu4;
-  color:$white
+  color:$white;
 }
 #words-item {
   border-color:$menu5;
@@ -106,7 +110,7 @@ nav {
 }
 #words-item:hover {
   background-color:$menu5;
-  color:$white
+  color:$white;
 }
 #login-item {
   border-color:$menu6;
@@ -114,7 +118,7 @@ nav {
 }
 #login-item:hover {
   background-color:$menu6;
-  color:$white
+  color:$white;
 }
 #register-item {
   border-color:$menu7;
@@ -122,7 +126,7 @@ nav {
 }
 #register-item:hover {
   background-color:$menu7;
-  color:$white
+  color:$white;
 }
 #logout-item {
   border-color:$menu8;
@@ -130,7 +134,15 @@ nav {
 }
 #logout-item:hover {
   background-color:$menu8;
-  color:$white
+  color:$white;
+}
+#add-item {
+  border-color:$menu9;
+  color:$menu9;
+}
+#add-item:hover {
+  background-color:$menu9;
+  color:$darkgray;
 }
 .selected {
   background-color:$secondary;

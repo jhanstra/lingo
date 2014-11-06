@@ -1,14 +1,40 @@
-<div ng-controller="AuthCtrl as authCtrl">
-<div class="auth-forms">
-  <br><br><br><br><br>
-  <h2>Log In</h2>
+<div ng-controller="AuthCtrl as authCtrl" class="auth-controller">
+  <header><div></div></header>
+  <div class="row page">
+  <sidebar class="sidebar col-sm-2 hidden-xs"></sidebar>
+  <div class="inner-page col-sm-8 col-xs-12">
+    <div class="promo-page">
+      <h1>Welcome to Crowdefine</h1>
+      <h3>Crowdefine is the dictionary reimagined. Sign up for a free account to add and save words and definitions, create dictionaries, and much, much more.</h3>
+      <div class="form-container">
+        <div class="sign-in">
+          <h3>Sign in</h3>
+          <form ng-submit="login()">
+            <p ng-show="error" class="text-danger">{{error}}</p>
+            <input type="email" ng-model="user.email" placeholder="Email" class="form-control"><br>
+            <input type="password" ng-model="user.password" placeholder="Password" class="form-control"><br>
+            <input type="submit" value="Log in" class="btn btn-primary" />
+          </form>
+          <button ng-click="loginWithFacebook()">
+            <p>Sign in with Facebook</p>
+          <button>
+        </div>
+        <div class="sign-up">
+          <h3>Sign up</h3>
+          <form ng-submit="register()">
+            <p ng-show="error" class="text-danger">{{error}}</p>
+            <input type="text" ng-model="user.reg_username" placeholder="Username" class="form-control"><br>
+            <input type="email" ng-model="user.reg_email" placeholder="Email" class="form-control"><br>
+            <input type="password" ng-model="user.reg_password" placeholder="Password" class="form-control"><br>
+            <input type="submit" value="Register" class="btn btn-primary" />
+          </form>
+          <form ng-submit="loginWithFacebook()">
+            <input type="submit" value="Sign up with Facebook" class="btn btn-primary" />
+          <form>
+        </div>
+      </div>
 
-  <form ng-submit="login()">
-    <p ng-show="error" class="text-danger">{{error}}</p>
-    <input type="email" ng-model="user.email" placeholder="Email" class="form-control"><br>
-    <input type="password" ng-model="user.password" placeholder="Password" class="form-control"><br>
-    <input type="submit" value="Log in" class="btn btn-primary" />
-  </form>
+    </div>
 
-</div>
+  </div>
 </div>

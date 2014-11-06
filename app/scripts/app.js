@@ -15,13 +15,17 @@ var app = angular.module('crowdefine', [
   'ngResource',
   'crowdefine.directives'
 ]);
+
+// CONSTANTS
 app.constant('FIREBASE_URL', 'https://crowdefine.firebaseio.com/');
 
+// FACTORIES
 app.factory('Definition', ['$firebase','FIREBASE_URL', require('./services/definition')]);
 app.factory('Word', ['$firebase', 'FIREBASE_URL', require('./services/word')]);
 app.factory('Auth', ['$firebaseSimpleLogin', 'FIREBASE_URL', '$rootScope', require('./services/auth')]);
-app.factory('User', ['$firebase', 'FIREBASE_URL', '$rootScope','$log','Auth', require('./services/user')])
+app.factory('User', ['$firebase', 'FIREBASE_URL', '$rootScope','$log','Auth', require('./services/user')]);
 
+// CONTROLLERS
 app.controller('MainCtrl', ['$rootScope','$scope','$firebase','$location','Auth','User', require('./controllers/maincontroller')]);
 app.controller('SidebarCtrl', ['$rootScope','$scope','$location', require('./controllers/sidebarcontroller')]);
 app.controller('MyDictionaryCtrl', ['$rootScope','$scope','$location','Definition','Word', require('./controllers/mycontroller')]);
@@ -29,15 +33,14 @@ app.controller('GlobalDictionaryCtrl', ['$rootScope','$scope', require('./contro
 app.controller('WordCtrl', ['$rootScope','$scope','$location','Definition','Word', require('./controllers/wordcontroller')]);
 app.controller('AuthCtrl', ['$scope','$location','Auth','User', require('./controllers/authcontroller')]);
 
-
+// CONFIG
 app.config(function($routeProvider) {
   $routeProvider
   .when('/', { templateUrl: 'views/my-dictionary.html' })
   .when('/global', { templateUrl: 'views/global-dictionary.html' })
   .when('/profile', { templateUrl: 'views/profile.html' })
   .when('/words', { templateUrl: 'views/word-center.html'})
-  .when('/login', { templateUrl: 'views/login.html' })
-  .when('/register', { templateUrl: 'views/register.html' })
+  .when('/signin', { templateUrl: 'views/login.html' })
   .otherwise({ redirectTo: '/' });
 
 });
