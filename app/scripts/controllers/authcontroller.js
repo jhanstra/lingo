@@ -8,26 +8,25 @@ module.exports = function ($scope, $location, Auth, User) {
     //   $location.path('/');
     // }
 
-    $scope.$on('$firebaseSimpleLogin:login', function () {
-      $location.path('/');
-    });
+    $scope.user = {};
 
-    $scope.login = function () {
-      Auth.login($scope.user).then(function () {
-        $location.path('/');
-      }, function (error) {
-        $scope.error = error.toString();
-      });
+
+    // $scope.$on('$firebaseSimpleLogin:login', function () {
+    //   $location.path('/');
+    // });
+
+    $scope.signIn = function () {
+      Auth.signIn($scope.user);
     };
 
-    $scope.logout = function () {
-      Auth.logout();
+    $scope.signOut = function () {
+      Auth.signOut();
     };
 
     $scope.register = function () {
       Auth.register($scope.user).then(function (authUser) {
         User.create(authUser, $scope.user.reg_username);
-        Auth.login($scope.user).then(function () {
+        Auth.signIn($scope.user).then(function () {
           $location.path('/');
         });
       }, function (error) {
@@ -35,8 +34,15 @@ module.exports = function ($scope, $location, Auth, User) {
       });
     };
 
-    var ref = new Firebase("https://crowdefine.firebaseio.com")
-    $scope.loginWithFacebook = function() {
-      Auth.loginWithFacebook();
-    }
+    $scope.signInWithFacebook = function() {
+      Auth.signInWithFacebook();
+      // .then(function (authUser) {
+      //   User.create(authUser, $scope.user.reg_username);
+      //   Auth.signIn($scope.user).then(function () {
+      //     $location.path('/');
+      //   });
+      // }, function (error) {
+      //   $scope.error = error.toString();
+      // });
+    };
   };

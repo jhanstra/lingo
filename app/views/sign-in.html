@@ -4,18 +4,18 @@
   <sidebar class="sidebar col-sm-2 hidden-xs"></sidebar>
   <div class="inner-page col-sm-8 col-xs-12">
     <div class="promo-page">
-      <h1>Welcome to Crowdefine</h1>
+      <h1>Welcome to Crowdefine, {{ user.email }}</h1>
       <h3>Crowdefine is the dictionary reimagined. Sign up for a free account to add and save words and definitions, create dictionaries, and much, much more.</h3>
       <div class="form-container">
         <div class="sign-in">
           <h3>Sign in</h3>
-          <form ng-submit="login()">
+          <form ng-submit="signIn()">
             <p ng-show="error" class="text-danger">{{error}}</p>
             <input type="email" ng-model="user.email" placeholder="Email" class="form-control"><br>
             <input type="password" ng-model="user.password" placeholder="Password" class="form-control"><br>
             <input type="submit" value="Log in" class="btn btn-primary" />
           </form>
-          <button ng-click="loginWithFacebook()">
+          <button ng-click="signInWithFacebook()">
             <p>Sign in with Facebook</p>
           <button>
         </div>
@@ -28,7 +28,7 @@
             <input type="password" ng-model="user.reg_password" placeholder="Password" class="form-control"><br>
             <input type="submit" value="Register" class="btn btn-primary" />
           </form>
-          <form ng-submit="loginWithFacebook()">
+          <form ng-submit="signInWithFacebook()">
             <input type="submit" value="Sign up with Facebook" class="btn btn-primary" />
           <form>
         </div>

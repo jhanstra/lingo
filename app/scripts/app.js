@@ -22,7 +22,7 @@ app.constant('FIREBASE_URL', 'https://crowdefine.firebaseio.com/');
 // FACTORIES
 app.factory('Definition', ['$firebase','FIREBASE_URL', require('./services/definition')]);
 app.factory('Word', ['$firebase', 'FIREBASE_URL', require('./services/word')]);
-app.factory('Auth', ['$firebaseSimpleLogin', 'FIREBASE_URL', '$rootScope', require('./services/auth')]);
+app.factory('Auth', ['$firebase', 'FIREBASE_URL', '$rootScope', require('./services/auth')]);
 app.factory('User', ['$firebase', 'FIREBASE_URL', '$rootScope','$log','Auth', require('./services/user')]);
 
 // CONTROLLERS
@@ -40,7 +40,7 @@ app.config(function($routeProvider) {
   .when('/global', { templateUrl: 'views/global-dictionary.html' })
   .when('/profile', { templateUrl: 'views/profile.html' })
   .when('/words', { templateUrl: 'views/word-center.html'})
-  .when('/signin', { templateUrl: 'views/login.html' })
+  .when('/signin', { templateUrl: 'views/sign-in.html' })
   .otherwise({ redirectTo: '/' });
 
 });
