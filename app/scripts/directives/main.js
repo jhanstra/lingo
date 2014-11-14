@@ -14,5 +14,12 @@ app.directive('search', function() {
   }
 });
 
+app.directive('main', function() {
+  return {
+    restrict: 'E',
+    templateUrl: "views/partials/main.html"
+  }
+});
+
 
 module.exports = app;
