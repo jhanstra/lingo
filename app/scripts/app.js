@@ -9,15 +9,15 @@ var angular_route = require('angular-route');
 
 
 
-var app = angular.module('crowdefine', [
+var app = angular.module('lingo', [
   'firebase',
   'ngRoute',
   'ngResource',
-  'crowdefine.directives'
+  'lingo.directives'
 ]);
 
 // CONSTANTS
-app.constant('FIREBASE_URL', 'https://crowdefine.firebaseio.com/');
+app.constant('FIREBASE_URL', 'https://lingo-app.firebaseio.com/');
 
 // FACTORIES
 app.factory('Definition', ['$firebase','FIREBASE_URL', require('./services/definition')]);
@@ -32,6 +32,7 @@ app.controller('MyDictionaryCtrl', ['$rootScope','$scope','$location','Definitio
 app.controller('GlobalDictionaryCtrl', ['$rootScope','$scope', require('./controllers/globalcontroller')]);
 app.controller('WordCtrl', ['$rootScope','$scope','$location','Definition','Word', require('./controllers/wordcontroller')]);
 app.controller('AuthCtrl', ['$scope','$location','Auth','User', require('./controllers/authcontroller')]);
+app.controller('AddCtrl', ['$rootScope','$scope','$location', require('./controllers/addcontroller')]);
 
 // CONFIG
 app.config(function($routeProvider) {

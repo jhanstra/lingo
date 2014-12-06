@@ -1,5 +1,6 @@
 <div ng-controller="MyDictionaryCtrl as myCtrl">
-  <div class="inner-page col-sm-8 col-xs-12">
+  <add-mode></add-mode>
+  <div class="inner-page col-sm-8 col-xs-12" ng-class="{true: 'blur-it'}[addMode === true]">
     <!-- <div ng-show="inputMode" ng-class="" class="input-word-form">
       <h2>Add a Word</h2>
       <form>

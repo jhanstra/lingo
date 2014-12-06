@@ -10,8 +10,7 @@ nav {
   width:70px;
   height:100%;
   position:fixed;
-  background-color:rgba(0,0,0,0.7);
-  border-top-right-radius:4px;
+  background-color:#222;
 }
 .sidebar {
   height:100%;
@@ -30,6 +29,7 @@ nav {
       border-radius:0px;
       background-color:transparent;
       margin:10px;
+      border-radius:4px;
       span {
         display:table-cell;
         vertical-align:middle;

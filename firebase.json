@@ -1,5 +1,5 @@
 {
-  "firebase": "crowdefine",
+  "firebase": "lingo-app",
   "public": "dist",
   "ignore": [
     "firebase.json",

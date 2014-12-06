@@ -1,9 +1,10 @@
 module.exports = function($rootScope, $scope, $firebase, $location, Auth, User) {
   $rootScope.searchTerm = "";
+  $rootScope.addMode = false;
   $scope.goTo = function( hash ) {
       $location.path( hash );
   };
   $scope.add = function () {
-    $scope.addMode = true;
+    $rootScope.addMode = !$rootScope.addMode;
   }
 };

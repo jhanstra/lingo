@@ -1,0 +1,30 @@
+.blur-it {
+  filter:blur(5px);
+}
+
+.add-mode {
+  position:fixed;
+  width:100%;
+  min-height:100vh;
+  background-color:rgba(0,0,0,0.5);
+  z-index:999;
+  color:$white;
+  .add-chooser {
+    border-bottom:1px solid $grayscale5;
+    div {
+      height:150px;
+      padding:30px;
+      border-right:1px solid $grayscale5;
+      &:hover {
+        cursor:pointer;
+        background-color:rgba(0,0,0,0.8);
+      }
+      h1 {
+        text-align:center;
+        font-weight:200;
+
+      }
+    }
+
+  }
+}

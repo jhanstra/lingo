@@ -1,5 +1,5 @@
 {
-  "name": "ng-crowdefine",
+  "name": "lingo",
   "version": "0.0.0",
   "description": "The crowd-sourced dictionary",
   "main": "gulpfile.js",
@@ -57,20 +57,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jhanstra/ng-crowdefine.git"
+    "url": "https://github.com/jhanstra/lingo.git"
   },
   "keywords": [
     "dictionary",
     "crowd",
     "crowdsource",
-    "crowdefine",
+    "lingo",
     "define",
     "definition"
   ],
   "author": "Jared Hanstra",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jhanstra/ng-crowdefine/issues"
+    "url": "https://github.com/jhanstra/lingo/issues"
   },
-  "homepage": "https://github.com/jhanstra/ng-crowdefine"
+  "homepage": "https://github.com/jhanstra/lingo"
 }

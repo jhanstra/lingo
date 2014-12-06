@@ -3,11 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Crowdefine</title>
+    <title>Lingo</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
-  <body ng-app="crowdefine" class="container-fluid" ng-controller="MainCtrl as mainCtrl">
-    <main></main>
+  <body ng-app="lingo" class="container-fluid" ng-controller="MainCtrl as mainCtrl">
+    <sidebar class="sidebar col-sm-2 hidden-xs"></sidebar>
+    <div class="row page">
+
+      <div ng-view></div>
+    </div>
     <script type="text/javascript" src="../js/bundle.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.0.2/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>

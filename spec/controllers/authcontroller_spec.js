@@ -3,10 +3,10 @@
 // describe("controller:AuthController", function() {
 //
 //   // load the marketplace controller
-//   beforeEach(angular.mock.module('crowdefine'));
+//   beforeEach(angular.mock.module('lingo'));
 //
 //   it('should have a AuthCtrl controller', function() {
-//     expect(crowdefine.AuthCtrl).toBeDefined();
+//     expect(lingo.AuthCtrl).toBeDefined();
 //   });
 //
 //

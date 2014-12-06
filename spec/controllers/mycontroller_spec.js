@@ -4,7 +4,7 @@ describe("MyController", function() {
       controller;
 
   beforeEach(function() {
-    module('crowdefine');
+    module('lingo');
 
     inject(function($injector) {
       $rootScope = $injector.get('$rootScope');
