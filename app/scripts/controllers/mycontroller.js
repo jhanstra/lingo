@@ -1,4 +1,4 @@
-module.exports = function($rootScope, $scope, $location, Definition, Word) {
+module.exports = function($rootScope, $scope, $location, Definition, Word, User) {
   $scope.definitions = Definition.all;
   $scope.definition = {
     wordId:"",

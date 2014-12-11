@@ -30,7 +30,7 @@
 
     <li ng-controller="AuthCtrl as authCtrl" class="sidebar-list-item" id="profile-item" ng-show="signedIn()" ng-mouseover="showListItem4 = true" ng-mouseleave="showListItem4 = false" ng-click="goTo('/profile')">
       <div>
-        <span><i class="fa fa-smile-o"></i><p ng-show="showListItem4">My Profile</p></span>
+        <span><i class="fa fa-smile-o"></i><p ng-show="showListItem4">{{ authData.facebook.displayName }}</p></span>
       </div>
     </li>
 

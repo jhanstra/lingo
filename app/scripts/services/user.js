@@ -1,16 +1,13 @@
 'use strict';
 
 module.exports = function($firebase, FIREBASE_URL, $rootScope) {
-  var ref = new Firebase(FIREBASE_URL + 'users');
-  var users = $firebase(ref);
+  var ref = new Firebase(FIREBASE_URL);
+  var users = ref.child("users");
 
   var User = {
-    create: function(authUser, username) {
-      users.$update(username, {
-        md5_hash: authUser.md5_hash,
-        username: username,
-        setPriority: authUser.uid
-      })
+    all: users,
+    create: function(user, authData) {
+      return users.push(user);
     },
     findByUsername: function(username) {
       if (username) {

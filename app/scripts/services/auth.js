@@ -1,7 +1,8 @@
 'use strict';
 
-module.exports = function ($firebaseSimpleLogin, FIREBASE_URL, $rootScope) {
+module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_URL, $rootScope) {
     var ref = new Firebase(FIREBASE_URL);
+    var auth = $firebaseAuth(ref);
 
     // var auth = $firebaseSimpleLogin(ref);
     // var auth = new FirebaseSimpleLogin(ref, function() {
@@ -13,35 +14,51 @@ module.exports = function ($firebaseSimpleLogin, FIREBASE_URL, $rootScope) {
 
     var Auth = {
       register: function (user) {
-        return ref.createUser(user.reg_email, user.reg_password);
+        var authData = auth.$getAuth();
+        console.log("authData: " + authData);
+        return auth.$createUser(user.email, user.password).then(function(authData) {
+          User.create(user, authData);
+          auth.$authWithPassword(user).then(function(authData) {
+            console.log("Logged in as: ", authData.uid);
+            $location.path('/');
+          }).catch(function(error) {
+            console.log("Authentication failed: ", error);
+          })
+        });
       },
       signedIn: function () {
         var authData = null;
         authData = ref.getAuth();
-        if (authData) { return true;}
+        if (authData) { return true }
         else { return false;};
       },
+      getLoginInfo: function () {
+        return auth.$getAuth();
+      },
       signIn: function (user) {
-        return ref.authWithPassword(user, function(error, authData) {
-          if (error) {
-            alert('Login Failed!', error);
-          } else {
-            console.log('Authenticated successfully with payload:', authData);
-          }
+        return auth.$authWithPassword(user).then(function(authData) {
+          console.log("Logged in as: ", authData.uid);
+          $location.path('/');
+        }).catch(function(error) {
+          console.log("Authentication failed: ", error);
         });
       },
       signOut: function () {
-        ref.unauth();
+        auth.$unauth();
       },
       signInWithFacebook: function () {
-        return ref.authWithOAuthPopup("facebook", function(error, authData) {
-          if (error) {
-            console.log('Login Failed!', error);
-          } else {
-            console.log('Authenticated successfully with payload:', authData);
-          }
-        },
-        { scope: 'email' });
+        return auth.$authWithOAuthPopup("facebook",{ scope: "email"}).then(function(authData) {
+          console.log("Logged in as:", authData.facebook.displayName);
+          var user = {
+            displayName: authData.facebook.displayName,
+            email: authData.facebook.email,
+            authMethod: 'facebook'
+          };
+          User.create(user, authData);
+          $location.path('/');
+        }).catch(function(error) {
+          console.error("Authentication failed:", error);
+        });
       }
     };
 

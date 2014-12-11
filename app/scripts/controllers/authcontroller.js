@@ -8,7 +8,11 @@ module.exports = function ($scope, $location, Auth, User) {
     //   $location.path('/');
     // }
 
-    $scope.user = {};
+    $scope.user = {
+      first_name:'',
+      last_name:'',
+      dob:'',
+    };
 
 
     // $scope.$on('$firebaseSimpleLogin:login', function () {
@@ -24,18 +28,13 @@ module.exports = function ($scope, $location, Auth, User) {
     };
 
     $scope.register = function () {
-      Auth.register($scope.user).then(function (authUser) {
-        User.create(authUser, $scope.user.reg_username);
-        Auth.signIn($scope.user).then(function () {
-          $location.path('/');
-        });
-      }, function (error) {
-        $scope.error = error.toString();
-      });
+      console.log("User: " + $scope.user); // logs object correctly
+      Auth.register($scope.user);
     };
 
     $scope.signInWithFacebook = function() {
       Auth.signInWithFacebook();
+      var authData = Auth.getLoginInfo();
       // .then(function (authUser) {
       //   User.create(authUser, $scope.user.reg_username);
       //   Auth.signIn($scope.user).then(function () {
