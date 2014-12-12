@@ -4,14 +4,6 @@ module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_U
     var ref = new Firebase(FIREBASE_URL);
     var auth = $firebaseAuth(ref);
 
-    // var auth = $firebaseSimpleLogin(ref);
-    // var auth = new FirebaseSimpleLogin(ref, function() {
-    //   if (user) {
-    //     // the access token will allow us to make Open Graph API calls
-    //     console.log(user.accessToken);
-    //   };
-    // });
-
     var Auth = {
       register: function (user) {
         var authData = auth.$getAuth();
@@ -28,9 +20,9 @@ module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_U
       },
       signedIn: function () {
         var authData = null;
-        authData = ref.getAuth();
-        if (authData) { return true }
-        else { return false;};
+        authData = auth.$getAuth();
+        if (authData) { return 'true' }
+        else { return 'false'};
       },
       getLoginInfo: function () {
         return auth.$getAuth();
@@ -61,10 +53,7 @@ module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_U
         });
       }
     };
-
-    $rootScope.signedIn = function () {
-      return Auth.signedIn();
-    };
+    
 
     return Auth;
   };

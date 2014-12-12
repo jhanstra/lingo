@@ -1,4 +1,4 @@
-module.exports = function($rootScope, $scope, $firebase, $location, Auth, User) {
+  module.exports = function($rootScope, $scope, $firebase, $location, Auth, User) {
   $rootScope.searchTerm = "";
   $rootScope.addMode = false;
   $scope.goTo = function( hash ) {
@@ -7,4 +7,7 @@ module.exports = function($rootScope, $scope, $firebase, $location, Auth, User) 
   $scope.add = function () {
     $rootScope.addMode = !$rootScope.addMode;
   }
+  $scope.signedIn = function () {
+    return Auth.signedIn();
+  };
 };
