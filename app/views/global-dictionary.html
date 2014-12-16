@@ -1,20 +1,9 @@
 <div ng-controller="MyDictionaryCtrl as myCtrl">
   <add-mode></add-mode>
   <div class="inner-page col-sm-8 col-xs-12" ng-class="{true: 'blur-it'}[addMode === true]">
-    <!-- <div ng-show="inputMode" ng-class="" class="input-word-form">
-      <h2>Add a Word</h2>
-      <form>
-          <input ng-model="definition.word" type="text" placeholder="word"><br>
-          <textarea ng-model="definition.definition" type="textarea" class="definition-input" placeholder="definition"></textarea><br>
-          <button class="btn btn-primary btn-success submit-word" ng-click="submitDefinition()">Save Word</button>
-      </form>
-    </div> -->
     <div class="dictionary-container">
       <div class="page-header-container">
           <h1>Global Dictionary {{ searchTerm }}</h1>
-        <!-- <div class="add-word">
-          <button class="btn btn-primary" ng-click="inputMode = !inputMode" ng-class="{true: 'float-down'}[inputMode == true]">+ Add words</button>
-        </div> -->
       </div>
       <div class="dictionary-content">
         <div ng-repeat="word in words | orderBy:'content' | filter:{content:searchTerm}" class="definition card">
