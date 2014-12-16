@@ -1,5 +1,5 @@
 {
-  "name": "ng-crowdefine",
+  "name": "lingo",
   "version": "0.0.0",
   "description": "The crowd-sourced dictionary",
   "main": "gulpfile.js",
@@ -20,11 +20,13 @@
     "gulp-uglify": "^1.0.1"
   },
   "devDependencies": {
-    "angular": "^1.2.23",
+    "angular": "1.2.23",
+    "angular-module-mocks": "^1.2.19",
     "angular-resource": "^0.1.1",
     "angular-route": "^1.2.17-build.163.1",
     "bootstrap": "^3.2.0",
-    "browserify": "^5.11.2",
+    "browserify": "4.0.0",
+    "browserify-shim": "^3.8.1",
     "connect-livereload": "^0.4.0",
     "express": "^4.9.0",
     "firebase": "^1.0.23",
@@ -34,13 +36,20 @@
     "gulp-clean": "^0.3.1",
     "gulp-concat": "^2.4.0",
     "gulp-embedlr": "^0.5.2",
+    "gulp-jasmine": "^1.0.1",
     "gulp-jshint": "^1.8.4",
     "gulp-livereload": "^2.1.1",
     "gulp-ng-annotate": "^0.3.3",
+    "gulp-notify": "^1.8.0",
     "gulp-sass": "^0.7.3",
     "gulp-scss-lint": "^0.1.4",
     "gulp-util": "^3.0.1",
+    "jasmine-node": "^1.14.5",
     "jquery": "^2.1.1",
+    "karma": "^0.12.24",
+    "karma-browserify": "^0.2.1",
+    "karma-chrome-launcher": "^0.1.5",
+    "karma-jasmine": "^0.1.5",
     "ng-resource": "^1.2.18-2",
     "tiny-lr": "^0.1.4"
   },
@@ -49,20 +58,31 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jhanstra/ng-crowdefine.git"
+    "url": "https://github.com/jhanstra/lingo.git"
   },
   "keywords": [
     "dictionary",
     "crowd",
     "crowdsource",
-    "crowdefine",
+    "lingo",
     "define",
     "definition"
   ],
   "author": "Jared Hanstra",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jhanstra/ng-crowdefine/issues"
+    "url": "https://github.com/jhanstra/lingo/issues"
   },
-  "homepage": "https://github.com/jhanstra/ng-crowdefine"
+  "homepage": "https://github.com/jhanstra/lingo",
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browser": {
+    "angular": "./node_modules/angular/angular.js"
+  },
+  "browserify-shim": {
+    "angular": "angular"
+  }
 }

@@ -14,6 +14,8 @@ var gulp = require('gulp'),
     ngAnnotate = require('gulp-ng-annotate'),
     autoprefixer = require('gulp-autoprefixer'),
     scsslint = require('gulp-scss-lint'),
+    jasmine = require('gulp-jasmine');
+    notify = require('gulp-notify');
     livereloadport = 35729,
     serverport = 5000;
 
@@ -103,6 +105,16 @@ gulp.task('styles', function() {
   .pipe(refresh(lrserver));
 });
 
+// Tests
+gulp.task('test', function () {
+  gulp.src('spec/*.js')
+    .pipe(jasmine())
+    .on('error', notify.onError({
+      title: 'Jasmine Test Failed',
+      message: 'One or more tests failed, see the cli for details.'
+    }));
+});
+
 gulp.task('watch', ['lint'], function() {
   // Watch our scripts
   gulp.watch(['app/scripts/*.js', 'app/scripts/**/*.js', 'app/views/*.html','app/views/**/*.html','app/styles/*.scss','app/styles/**/*.scss','app/index.html'],[
@@ -114,7 +126,7 @@ gulp.task('watch', ['lint'], function() {
 });
 
 gulp.task('default' , function() {
-     gulp.start('lint','browserify','views','dev','styles','watch');
+     gulp.start('lint','browserify','views','dev','styles','test','watch');
 });
 
 

@@ -1,18 +1,18 @@
-<nav ng-controller="AuthCtrl as authCtrl">
+<nav>
   <!-- <div class="title-box">
-    <h3 class="crowdefine-title">crowdefine</h3>
+    <h3 class="lingo-title">lingo</h3>
   </div> -->
   <div class="dock"></div>
   <ul>
-    <li class="sidebar-list-item" id="home-item" ng-mouseover="showListItem1 = true" ng-mouseleave="showListItem1 = false" ng-click="goTo('/')">
+    <li class="sidebar-list-item" id="search-item" ng-mouseover="showListItem0 = true" ng-mouseleave="showListItem0 = false" ng-click="showSearch()">
       <div>
-        <span><i class="fa fa-home"></i><p ng-show="showListItem1">Home</p></span>
+        <span><i class="fa fa-search"></i><input ng-show="searchTerm !== '' || showListItem0" type="text" ng-model="searchTerm" class="side-search" placeholder="search lingo"></input></span>
       </div>
     </li>
 
-    <li class="sidebar-list-item" id="mydictionary-item" ng-mouseover="showListItem2 = true" ng-mouseleave="showListItem2 = false" ng-click="goTo('/')">
+    <li class="sidebar-list-item" id="home-item" ng-mouseover="showListItem1 = true" ng-mouseleave="showListItem1 = false" ng-click="goTo('/')">
       <div>
-        <span><i class="fa fa-book"></i><p ng-show="showListItem2">My Dictionary</p></span>
+        <span><i class="fa fa-home"></i><p ng-show="showListItem1">Home</p></span>
       </div>
     </li>
 
@@ -22,33 +22,38 @@
       </div>
     </li>
 
-    <li class="sidebar-list-item" id="profile-item" ng-mouseover="showListItem4 = true" ng-mouseleave="showListItem4 = false" ng-click="goTo('/profile')">
+    <li class="sidebar-list-item" id="mydictionary-item" ng-show="signedIn()" ng-mouseover="showListItem2 = true" ng-mouseleave="showListItem2 = false" ng-click="goTo('/')">
       <div>
-        <span><i class="fa fa-smile-o"></i><p ng-show="showListItem4">My Profile</p></span>
+        <span><i class="fa fa-book"></i><p ng-show="showListItem2">My Dictionary</p></span>
       </div>
     </li>
 
-    <li class="sidebar-list-item" id="words-item" ng-mouseover="showListItem5 = true" ng-mouseleave="showListItem5 = false" ng-click="goTo('/words')">
+    <li ng-controller="AuthCtrl as authCtrl" class="sidebar-list-item" id="profile-item" ng-show="signedIn()" ng-mouseover="showListItem4 = true" ng-mouseleave="showListItem4 = false" ng-click="goTo('/profile')">
+      <div>
+        <span><i class="fa fa-smile-o"></i><p ng-show="showListItem4">{{ currentUser.displayName }}</p></span>
+      </div>
+    </li>
+
+    <li class="sidebar-list-item" id="words-item" ng-show="signedIn()" ng-mouseover="showListItem5 = true" ng-mouseleave="showListItem5 = false" ng-click="goTo('/words')">
       <div>
         <span><i class="fa fa-bars"></i><p ng-show="showListItem5">Word Center</p></span>
       </div>
     </li>
 
-    <li class="sidebar-list-item" id="login-item" ng-show="!signedIn()" ng-mouseover="showListItem6 = true" ng-mouseleave="showListItem6 = false" ng-click="goTo('/login')">
+    <li class="sidebar-list-item" id="login-item" ng-show="!signedIn()" ng-mouseover="showListItem6 = true" ng-mouseleave="showListItem6 = false" ng-click="goTo('/signin')">
       <div>
-        <span><i class="fa fa-sign-in"></i><p ng-show="showListItem6">Log In</p></span>
+        <span><i class="fa fa-sign-in"></i><p ng-show="showListItem6">Sign In/Register</p></span>
       </div>
     </li>
 
-    <li class="sidebar-list-item" id="register-item" ng-show="!signedIn()" ng-mouseover="showListItem7 = true" ng-mouseleave="showListItem7 = false"  ng-click="goTo('/register')">
-      <div>
-        <span><i class="fa fa-globe"></i><p ng-show="showListItem7">Register</p></span>
-      </div>
-    </li>
-
-    <li class="sidebar-list-item" id="logout-item" ng-show="signedIn()" ng-mouseover="showListItem8 = true" ng-mouseleave="showListItem8 = false" ng-click="logout()">
+    <li ng-controller="AuthCtrl as authCtrl" class="sidebar-list-item" id="logout-item" ng-show="signedIn()" ng-mouseover="showListItem8 = true" ng-mouseleave="showListItem8 = false" ng-click="signOut()">
       <div>
         <span><i class="fa fa-sign-out"></i><p ng-show="showListItem8">Log Out</p></span>
+      </div>
+    </li>
+    <li class="sidebar-list-item" id="add-item" ng-show="signedIn()" ng-mouseover="showListItem9 = true" ng-mouseleave="showListItem9 = false" ng-click="add()">
+      <div>
+        <span><i class="fa fa-plus"></i><p ng-show="showListItem9">Add a Word</p></span>
       </div>
     </li>
 

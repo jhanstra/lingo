@@ -1,0 +1,43 @@
+<div ng-controller="AddController as addCtrl" ng-if="addMode" class="add-mode">
+  <div class="row add-chooser">
+    <div class="col-xs-12 col-sm-4">
+      <h1><i class="fa fa-plus"></i>Add Definition</h1>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <h1><i class="fa fa-plus"></i>Add Dictionary</h1>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <h1><i class="fa fa-plus"></i>Add Word</h1>
+    </div>
+  </div>
+  <div class="row" ng-controller="dictionaryCtrl as MyDictionaryCtrl">
+    <div class="col-xs-11 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+    <h2>Add a Definition</h2>
+    <form>
+      <input ng-model="dictionaryCtrl.definition.word" type="text" placeholder="word">
+      <textarea ng-model="dictionaryCtrl.definition.content" type="textarea" placeholder="definition"></textarea>
+      <button class="btn btn-primary btn-success submit-word" ng-click="submitDefinition()">Save Definition</button>
+    <!-- <form>
+        <input ng-model="definition.word" type="text"  placeholder="word" ng-keydown="tabNext($event)" ng-click="wordSearch = !wordSearch" id="word-search"></input><br>
+        <div ng-show="wordSearch || definition.word.length == 1" class="word-selector">
+          <div ng-repeat="word in words | filter:{ content:definition.word } | orderBy:'content' | limitTo: 8" ng-class="{true: 'highlighted'}[$index == selectedIndex]">
+
+            <div ng-click="selectWord(word)" >
+              <h3>{{ word.content }}</h3>
+              <p>{{ word.partOfSpeech }}</p>
+            </div>
+          </div>
+          <div ng-show="$index == null">
+            <h3>Create new word</h3>
+          </div>
+        </div>
+        <textarea ng-model="definition.content" type="textarea" class="definition-input" placeholder="definition"></textarea><br>
+        <p>Do you want to add your definition to the global dictionary?</p>
+        <input type="radio" ng-model="definition.isGlobal" name="isGlobal" value="true" class="radio-buttons">
+        <label>Yes</label>
+        <input type="radio" ng-model="definition.isGlobal" name="isGlobal" value="false" class="radio-buttons">
+        <label>No</label>
+        <button class="btn btn-primary btn-success submit-word" ng-click="submitDefinition()">Save Definition</button>
+    </form> -->
+  </div>
+</div>

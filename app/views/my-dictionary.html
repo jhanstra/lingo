@@ -1,7 +1,6 @@
 <div ng-controller="MyDictionaryCtrl as myCtrl">
-  <div class="row page">
-    <sidebar class="sidebar col-sm-1 hidden-xs"></sidebar>
-    <div class="inner-page col-sm-8 col-sm-offset-1 col-xs-12">
+    <add-mode></add-mode>
+    <div class="inner-page col-sm-8 col-xs-12" ng-class="{true: 'blur-it'}[addMode === true]">
       <!-- <div ng-show="inputMode" ng-class="" class="input-word-form">
         <h2>Add a Definition</h2>
         <form>
@@ -29,8 +28,7 @@
       </div> -->
       <div class="dictionary-container">
         <div class="page-header-container">
-          <div class="dictionary-header-div">
-          </div>
+          <h1>My Dictionary {{currentUser.username}}</h1>
           <!-- <div class="add-word">
             <button class="btn btn-primary" ng-click="inputMode = !inputMode" ng-class="{true: 'float-down'}[inputMode == true]">+ Add Definitions</button>
           </div> -->
@@ -41,6 +39,8 @@
               <button class="btn btn-primary btn-success submit-word" ng-click="submitWord()">Save Word</button>
           </form>
         </div> -->
+        <p> {{ currentUser }}</p>
+        <p>Email: {{ currentUser.email }}</p>
           <div ng-repeat="def in definitions | orderBy:'word' | filter:{word:searchTerm}" ng class="card">
             <h3>{{def.word}}</h3>
             <p>{{def.content}}</p>

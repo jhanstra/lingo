@@ -1,5 +1,5 @@
 {
-  "name": "crowdefine",
+  "name": "lingo",
   "version": "0.0.1",
   "dependencies": {
     "sass-bootstrap": "~3.0.0",
@@ -9,6 +9,8 @@
   },
   "private": true,
   "devDependencies": {
-    "font-awesome": "~4.2.0"
+    "font-awesome": "~4.2.0",
+    "angular-mocks": "~1.3.0",
+    "jasmine": "~2.0.4"
   }
 }

@@ -1,4 +1,4 @@
-var app = angular.module('crowdefine.directives', []);
+var app = angular.module('lingo.directives', []);
 
 app.directive('sidebar', function() {
   return {
@@ -13,6 +13,13 @@ app.directive('search', function() {
     templateUrl: "views/partials/search.html"
   }
 });
+app.directive('addMode', function() {
+  return {
+    restrict: 'E',
+    templateUrl: "views/partials/add-mode.html"
+  }
+});
+
 
 
 module.exports = app;
