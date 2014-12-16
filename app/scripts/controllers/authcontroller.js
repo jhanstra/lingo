@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ($scope, $location, Auth, User) {
+module.exports = function ($rootScope, $scope, $location, Auth, User) {
     // if (Auth.signedIn() && $location.path('register')) {
     //   $location.path('/');
     // }
@@ -9,12 +9,22 @@ module.exports = function ($scope, $location, Auth, User) {
     // }
 
     $scope.user = {
-      first_name:'',
-      last_name:'',
-      dob:'',
+      uid:'',
+      username:'',
+      authMethod:'',
+      email:'',
+      bornAt:'',
+      password:'',
+      firstName:'',
+      lastName:''
     };
-
-
+    // var ref = new Firebase('https://lingo-app.firebaseio.com/');
+    // ref.child('users').on("value", function(snapshot) {
+    //   console.log("Objects:" + snapshot.val());
+    //   $scope.test = snapshot.val();
+    // }, function(errorObject) {
+    //   console.log("The read failed: " + errorObject.code);
+    // });
     // $scope.$on('$firebaseSimpleLogin:login', function () {
     //   $location.path('/');
     // });
@@ -27,14 +37,23 @@ module.exports = function ($scope, $location, Auth, User) {
       Auth.signOut();
     };
 
+    $rootScope.authData = Auth.getAuthData();
+
     $scope.register = function () {
-      console.log("User: " + $scope.user); // logs object correctly
+      // Auth.register($scope.user).then(function (authUser) {
+      //   User.create(authUser, $scope.user.username);
+      //   Auth.login($scope.user).then(function () {
+      //     $location.path('/');
+      //   });
+      // }, function (error) {
+      //   $scope.error = error.toString();
+      // });
+      $scope.user.displayName = $scope.user.firstName + " " + $scope.user.lastName;
       Auth.register($scope.user);
     };
 
     $scope.signInWithFacebook = function() {
       Auth.signInWithFacebook();
-      var authData = Auth.getLoginInfo();
       // .then(function (authUser) {
       //   User.create(authUser, $scope.user.reg_username);
       //   Auth.signIn($scope.user).then(function () {

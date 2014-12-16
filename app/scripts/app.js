@@ -25,14 +25,14 @@ app.factory('Word', ['$firebase', 'FIREBASE_URL', require('./services/word')]);
 app.factory('Auth', ['$firebase', '$firebaseAuth', 'User', '$location', 'FIREBASE_URL', '$rootScope', require('./services/auth')]);
 app.factory('User', ['$firebase', 'FIREBASE_URL', '$rootScope','$log', require('./services/user')]);
 
+
 // CONTROLLERS
 app.controller('MainCtrl', ['$rootScope','$scope','$firebase','$location','Auth','User', require('./controllers/maincontroller')]);
 app.controller('SidebarCtrl', ['$rootScope','$scope','$location', require('./controllers/sidebarcontroller')]);
 app.controller('MyDictionaryCtrl', ['$rootScope','$scope','$location','Definition','Word','User', require('./controllers/mycontroller')]);
 app.controller('GlobalDictionaryCtrl', ['$rootScope','$scope', require('./controllers/globalcontroller')]);
 app.controller('WordCtrl', ['$rootScope','$scope','$location','Definition','Word', require('./controllers/wordcontroller')]);
-app.controller('AuthCtrl', ['$scope','$location','Auth','User', require('./controllers/authcontroller')]);
-app.controller('AddCtrl', ['$rootScope','$scope','$location', require('./controllers/addcontroller')]);
+app.controller('AuthCtrl', ['$rootScope','$scope','$location','Auth','User', require('./controllers/authcontroller')]);
 
 // CONFIG
 app.config(function($routeProvider) {

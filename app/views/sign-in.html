@@ -15,16 +15,15 @@
           <form ng-submit="register()">
             <p ng-show="error" class="text-danger">{{error}}</p>
             <input type="text" ng-model="user.username" placeholder="Username" class="form-control"><br>
+            <input type="text" ng-model="user.firstName" placeholder="First Name" class="form-control"><br>
+            <input type="text" ng-model="user.lastName" placeholder="Last Name" class="form-control"><br>
             <input type="email" ng-model="user.email" placeholder="Email" class="form-control"><br>
             <input type="password" ng-model="user.password" placeholder="Password" class="form-control"><br>
             <input type="submit" value="Register" class="btn btn-primary" />
           </form>
           <form ng-submit="signInWithFacebook()">
-            <input type="submit" value="Sign up with Facebook" class="btn btn-primary" />
+            <input type="submit" value="Sign up with Facebook" class="btn btn-primary btn-facebook" />
           </form>
-          <p> Name: {{ signedIn }} </p>
-          <p>Display name: {{ authData.facebook.displayName }} </p>
-          <p>Current user: {{ currentUser }}</p>
         </div>
 
 
@@ -36,7 +35,7 @@
             <p ng-show="error" class="text-danger">{{error}}</p>
             <input type="email" ng-model="user.email" placeholder="Email" class="form-control"><br>
             <input type="password" ng-model="user.password" placeholder="Password" class="form-control"><br>
-            <input type="submit" value="Log in" class="btn btn-primary btn-facebook" />
+            <input type="submit" value="Log in" class="btn btn-primary"/>
           </form>
         </div>
 

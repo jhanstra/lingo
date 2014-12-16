@@ -16,16 +16,16 @@
     font-weight:100;
     margin:0 auto 30px;
   }
-  .btn-facebook {
-    background-color:$fb-blue;
-    color:$white;
-  }
   .form-container {
     width:100%;
     text-align:center;
     margin:0 auto;
     display:block;
     position:relative;
+    .btn-facebook {
+      background-color:$fb-blue;
+      color:$white;
+    }
     div {
       display:inline-block;
       float:left;
