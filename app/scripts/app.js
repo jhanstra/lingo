@@ -13,6 +13,7 @@ var app = angular.module('lingo', [
   'firebase',
   'ngRoute',
   'ngResource',
+  'ngStorage',
   'lingo.directives'
 ]);
 
@@ -22,7 +23,7 @@ app.constant('FIREBASE_URL', 'https://lingo-app.firebaseio.com/');
 // FACTORIES
 app.factory('Definition', ['$firebase','FIREBASE_URL', require('./services/definition')]);
 app.factory('Word', ['$firebase', 'FIREBASE_URL', require('./services/word')]);
-app.factory('Auth', ['$firebase', '$firebaseAuth', 'User', '$location', 'FIREBASE_URL', '$rootScope', require('./services/auth')]);
+app.factory('Auth', ['$firebase', '$firebaseAuth', 'User', '$location', 'FIREBASE_URL', '$rootScope','$sessionStorage', require('./services/auth')]);
 app.factory('User', ['$firebase', 'FIREBASE_URL', '$rootScope','$log', require('./services/user')]);
 
 
@@ -33,6 +34,7 @@ app.controller('MyDictionaryCtrl', ['$rootScope','$scope','$location','Definitio
 app.controller('GlobalDictionaryCtrl', ['$rootScope','$scope', require('./controllers/globalcontroller')]);
 app.controller('WordCtrl', ['$rootScope','$scope','$location','Definition','Word', require('./controllers/wordcontroller')]);
 app.controller('AuthCtrl', ['$rootScope','$scope','$location','Auth','User', require('./controllers/authcontroller')]);
+app.controller('AddCtrl', ['$rootScope','$scope','$location','Definition','Word','User', require('./controllers/addcontroller')]);
 
 // CONFIG
 app.config(function($routeProvider) {

@@ -22,24 +22,27 @@ module.exports = function($firebase, FIREBASE_URL, $rootScope) {
       }
     },
     findByUid: function(uid) {
-      return users.child(uid).on('value', function(snapshot) {
+      console.log(uid);
+      var ref = new Firebase('https://lingo-app.firebaseio.com/');
+      var users = ref.child("users");
+      return users.child(uid).on("value", function(snapshot) {
+        console.log("UID: ", uid);
         console.log("Booyah:" + snapshot.val());
-        $rootScope.currentUser = snapshot.val();
+        $rootScope.$storage.currentUser = snapshot.val();
+        console.log("Current User: ", $rootScope.$storage.currentUser);
         return snapshot.val()
       }, function(errorObject) {
         console.log("The read failed: " + errorObject.code);
       })
+    },
+
+    addDefinition: function(definition, uid) {
+      return users.child(uid).child('definitions').push(definition);
     }
-    // getCurrentUser: function () {
-    //   return $rootScope.currentUser;
-    // },
-    // signedIn: function () {
-    //   return $rootScope.currentUser !== undefined;
-    // }
   };
 
   // function setCurrentUser(username) {
-  //   $rootScope.currentUser = User.findByUsername(username);
+  //   $rootScope.$storage.currentUser = User.findByUsername(username);
   // }
   //
   // $rootScope.$on('$firebaseSimpleLogin:login', function(e, authUser) {
@@ -51,7 +54,7 @@ module.exports = function($firebase, FIREBASE_URL, $rootScope) {
   // });
   //
   // $rootScope.$on('$firebaseSimpleLogin:logout', function() {
-  //   delete $rootScope.currentUser;
+  //   delete $rootScope.$storage.currentUser;
   // });
 
   return User;

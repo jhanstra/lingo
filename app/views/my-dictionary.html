@@ -39,8 +39,6 @@
               <button class="btn btn-primary btn-success submit-word" ng-click="submitWord()">Save Word</button>
           </form>
         </div> -->
-        <p> {{ currentUser }}</p>
-        <p>Email: {{ currentUser.email }}</p>
           <div ng-repeat="def in definitions | orderBy:'word' | filter:{word:searchTerm}" ng class="card">
             <h3>{{def.word}}</h3>
             <p>{{def.content}}</p>

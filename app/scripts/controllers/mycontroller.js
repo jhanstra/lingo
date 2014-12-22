@@ -1,5 +1,5 @@
 module.exports = function($rootScope, $scope, $location, Definition, Word, User) {
-  $scope.definitions = Definition.all;
+  $scope.definitions = $rootScope.$storage.currentUser.definitions;
   $scope.definition = {
     wordId:"",
     word:"",
@@ -30,7 +30,6 @@ module.exports = function($rootScope, $scope, $location, Definition, Word, User)
     topDefinition:""
   };
 
-  $scope.testTesting = "hi jared";
   $scope.submitDefinition = function () {
     // for ( var word in $scope.words ) {
     //   if ( $scope.definition.word !==)

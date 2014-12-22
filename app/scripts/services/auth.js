@@ -1,8 +1,9 @@
 'use strict';
 
-module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_URL, $rootScope) {
+module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_URL, $rootScope, $sessionStorage) {
     var ref = new Firebase(FIREBASE_URL);
     var auth = $firebaseAuth(ref);
+    $rootScope.$storage = $sessionStorage;
 
     var Auth = {
       register: function (user) {
@@ -13,13 +14,14 @@ module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_U
             user.uid = authData.uid;
             user.authMethod = authData.provider;
             user.password = authData.token;
+            user.definitions = {'example':'an example'};
             var currentDate = new Date();
             user.bornAt = currentDate.getDate() + "/" + (currentDate.getMonth() + 1 )
             + "/" + currentDate.getFullYear() + " @ "
             + currentDate.getHours() + ":"
             + currentDate.getMinutes() + ":" + currentDate.getSeconds();
             User.create(user, authData);
-            $rootScope.currentUser = user;
+            $rootScope.$storage.currentUser = user;
             $location.path('/');
           }).catch(function(error) {
             console.log("Authentication failed: ", error);
@@ -43,7 +45,7 @@ module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_U
 
       signIn: function (user) {
         return auth.$authWithPassword(user).then(function(authData) {
-          $rootScope.currentUser = User.findByUid(authData.uid);
+          User.findByUid(authData.uid);
           $location.path('/');
         }).catch(function(error) {
           console.log("Authentication failed: ", error);
@@ -52,12 +54,12 @@ module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_U
 
       signOut: function () {
         auth.$unauth();
-        $rootScope.currentUser = null;
+        $rootScope.$storage.currentUser = null;
       },
 
       signInWithFacebook: function () {
         return auth.$authWithOAuthPopup("facebook",{ scope: "email"}).then(function(authData) {
-          console.log("Logged in as:", authData.facebook.displayName);
+          console.log("Logged in as:", authData.facebook.email);
           var nameArray = authData.facebook.displayName.split(' ');
           var currentDate = new Date();
           var user = {
@@ -65,7 +67,8 @@ module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_U
             displayName: authData.facebook.displayName,
             email: authData.facebook.email,
             username: authData.facebook.email,
-            authMethod: authData.provider
+            authMethod: authData.provider,
+            definitions: {'example':'this is an example definition'}
           };
           user.bornAt = currentDate.getDate() + "/" + (currentDate.getMonth() + 1 )
           + "/" + currentDate.getFullYear() + " @ "
@@ -74,7 +77,7 @@ module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_U
           user.firstName = nameArray[0];
           user.lastName = nameArray[nameArray.length - 1];
           User.create(user, authData);
-          $rootScope.currentUser = user;
+          $rootScope.$storage.currentUser = user;
           $location.path('/');
         }).catch(function(error) {
           console.error("Authentication failed:", error);

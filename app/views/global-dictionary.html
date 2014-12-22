@@ -8,10 +8,10 @@
       <div class="dictionary-content">
         <div ng-repeat="word in words | orderBy:'content' | filter:{content:searchTerm}" class="definition card">
           <span><h3>{{word.content}}</h3><p>{{word.partOfSpeech}}</p>
-          <div ng-repeat="definition in definitions" x>
+          <!-- <div ng-repeat="definition in definitions" x>
             <p ng-show="word.content === definition.word" class="card inner">{{ definition.content }}</p>
             <p>{{ definition.$id }}</p>
-          </div>
+          </div> -->
         </div>
         <!-- <div ng-repeat="definition in definitions | orderBy:'word' | filter:{word:searchTerm}" class="definition card" ng-show="definition.isGlobal">
           <h3>{{definition.word}}</h3>
