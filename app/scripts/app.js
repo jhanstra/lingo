@@ -1,10 +1,8 @@
 'use strict';
 var angular = require('angular');
 require('./directives/main');
-// var data = require('./data.js');
-// var angular_resource = require('angular-resource');
 var angular_route = require('angular-route');
-// var $ = require('jquery');
+var ngStorage = require('ng-storage');
 
 
 
@@ -23,18 +21,19 @@ app.constant('FIREBASE_URL', 'https://lingo-app.firebaseio.com/');
 // FACTORIES
 app.factory('Definition', ['$firebase','FIREBASE_URL', require('./services/definition')]);
 app.factory('Word', ['$firebase', 'FIREBASE_URL', require('./services/word')]);
-app.factory('Auth', ['$firebase', '$firebaseAuth', 'User', '$location', 'FIREBASE_URL', '$rootScope','$sessionStorage', require('./services/auth')]);
-app.factory('User', ['$firebase', 'FIREBASE_URL', '$rootScope','$log', require('./services/user')]);
+app.factory('Auth', ['$firebase', '$firebaseAuth', 'User', '$location', 'FIREBASE_URL', '$rootScope','$localStorage', require('./services/auth')]);
+app.factory('User', ['$firebase', 'FIREBASE_URL', '$rootScope','$localStorage', require('./services/user')]);
 
 
 // CONTROLLERS
-app.controller('MainCtrl', ['$rootScope','$scope','$firebase','$location','Auth','User', require('./controllers/maincontroller')]);
+app.controller('MainCtrl', ['$rootScope','$scope','$firebase','$location','Auth','User','Word','Definition','$localStorage','FIREBASE_URL', require('./controllers/maincontroller')]);
 app.controller('SidebarCtrl', ['$rootScope','$scope','$location', require('./controllers/sidebarcontroller')]);
+//app.controller('AddCtrl', ['$rootScope','$scope','$location','Definition','Word','User', require('./controllers/addcontroller')]);
 app.controller('MyDictionaryCtrl', ['$rootScope','$scope','$location','Definition','Word','User', require('./controllers/mycontroller')]);
 app.controller('GlobalDictionaryCtrl', ['$rootScope','$scope', require('./controllers/globalcontroller')]);
 app.controller('WordCtrl', ['$rootScope','$scope','$location','Definition','Word', require('./controllers/wordcontroller')]);
 app.controller('AuthCtrl', ['$rootScope','$scope','$location','Auth','User', require('./controllers/authcontroller')]);
-app.controller('AddCtrl', ['$rootScope','$scope','$location','Definition','Word','User', require('./controllers/addcontroller')]);
+
 
 // CONFIG
 app.config(function($routeProvider) {

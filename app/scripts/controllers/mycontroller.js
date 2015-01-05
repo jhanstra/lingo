@@ -1,59 +1,8 @@
 module.exports = function($rootScope, $scope, $location, Definition, Word, User) {
-  $scope.definitions = $rootScope.$storage.currentUser.definitions;
-  $scope.definition = {
-    wordId:"",
-    word:"",
-    content:"",
-    userId:"",
-    namespace:[],
-    isGlobal:"",
-    upvotes:"",
-    downvotes:"",
-    createdAt:""
-  };
-  $scope.words = Word.all;
-  $scope.word = {
-    content:"",
-    partOfSpeech:"",
-    pronounciation:"",
-    synonyms:[""],
-    antonyms:[""],
-    rhymes:[""],
-    coverPhoto:"",
-    wordsOfSameSpelling:[""],
-    language:"english",
-    prereqWords:[""],
-    relatedWords:[""],
-    createdAt:"",
-    inventor:"",
-    recognized:"",
-    topDefinition:""
-  };
-
-  $scope.submitDefinition = function () {
-    // for ( var word in $scope.words ) {
-    //   if ( $scope.definition.word !==)
-    // }
-    // if ($scope.definition.word)
-    Definition.create($scope.definition).then(function () {
-      $scope.definition = {};
-    });
-  };
-  $scope.deleteDefinition = function (definition) {
-    Definition.delete(definition);
-  };
-
-  $scope.submitWord = function () {
-    Word.create($scope.word).then(function () {
-      $scope.word = {content:''};
-    });
-  };
-  $scope.deleteWord = function (word) {
-    Word.delete(word);
-  };
 
   $scope.selectedIndex = 0;
   $scope.wordSearch = false;
+  $scope.definitions = 
 
   $scope.selectWord = function(word) {
     // var word = $scope.words[$index];

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function($firebase, FIREBASE_URL, $rootScope) {
+module.exports = function($firebase, FIREBASE_URL, $rootScope, $localStorage) {
   var ref = new Firebase(FIREBASE_URL);
   var users = ref.child("users");
 

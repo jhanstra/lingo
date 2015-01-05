@@ -1,4 +1,4 @@
-<div ng-controller="AddController as addCtrl" ng-if="addMode" class="add-mode">
+<div ng-if="addMode" class="add-mode">
   <div class="row add-chooser">
     <div class="col-xs-12 col-sm-4">
       <h1><i class="fa fa-plus"></i>Add Definition</h1>
@@ -15,8 +15,8 @@
     <h2>Add a Definition</h2>
     <form>
       <div class="form-group">
-        <input ng-model="definition.word" type="text" placeholder="word">
-        <textarea ng-model="definition.content" type="textarea" placeholder="definition"></textarea>
+        <input ng-model="$parent.definition.word" type="text" placeholder="word">
+        <textarea ng-model="$parent.definition.content" type="textarea" placeholder="definition"></textarea>
         <button class="btn btn-primary btn-success submit-word" ng-click="submitDefinition()">Save Definition</button>
       </div>
     <!-- <form>

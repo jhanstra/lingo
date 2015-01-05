@@ -1,9 +1,9 @@
 'use strict';
 
-module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_URL, $rootScope, $sessionStorage) {
+module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_URL, $rootScope, $localStorage) {
     var ref = new Firebase(FIREBASE_URL);
     var auth = $firebaseAuth(ref);
-    $rootScope.$storage = $sessionStorage;
+    $rootScope.$storage = $localStorage;
 
     var Auth = {
       register: function (user) {
@@ -67,8 +67,7 @@ module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_U
             displayName: authData.facebook.displayName,
             email: authData.facebook.email,
             username: authData.facebook.email,
-            authMethod: authData.provider,
-            definitions: {'example':'this is an example definition'}
+            authMethod: authData.provider
           };
           user.bornAt = currentDate.getDate() + "/" + (currentDate.getMonth() + 1 )
           + "/" + currentDate.getFullYear() + " @ "
@@ -78,6 +77,16 @@ module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_U
           user.lastName = nameArray[nameArray.length - 1];
           User.create(user, authData);
           $rootScope.$storage.currentUser = user;
+          console.log('Current User: ', $rootScope.$storage.currentUser);
+
+          // ref.child("users").on("value", function(snapshot) {
+          //   console.log(snapshot.val());
+          //   console.log('Current UID: ', $rootScope.$storage.currentUser.uid);
+          //   $rootScope.myDefinitions = snapshot.val();
+          // }, function ( errorObject) {
+          //   console.log('The read failed');
+          // });
+
           $location.path('/');
         }).catch(function(error) {
           console.error("Authentication failed:", error);

@@ -39,7 +39,7 @@
               <button class="btn btn-primary btn-success submit-word" ng-click="submitWord()">Save Word</button>
           </form>
         </div> -->
-          <div ng-repeat="def in definitions | orderBy:'word' | filter:{word:searchTerm}" ng class="card">
+          <div ng-repeat="def in myDefinitions" class="card">
             <h3>{{def.word}}</h3>
             <p>{{def.content}}</p>
             <button class="btn btn-danger" ng-click="deleteDefinition(def)">delete</button>
