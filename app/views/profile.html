@@ -9,7 +9,7 @@
   <div class="inner-page col-sm-8 col-xs-12" ng-class="{true: 'blur-it'}[addMode === true]">
     <div class="dictionary-container">
       <div class="page-header-container">
-        <h1>{{ currentUser.displayName }}</h1>
+        <h1>{{ $storage.currentUser.displayName }}</h1>
       </div>
       <div class="dictionary-content">
         <div ng-repeat="definition in entries | orderBy:'word' | filter:{word:searchTerm}" class="definition">

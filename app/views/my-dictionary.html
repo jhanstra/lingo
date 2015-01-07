@@ -28,17 +28,9 @@
       </div> -->
       <div class="dictionary-container">
         <div class="page-header-container">
-          <h1>My Dictionary {{currentUser.username}}</h1>
-          <!-- <div class="add-word">
-            <button class="btn btn-primary" ng-click="inputMode = !inputMode" ng-class="{true: 'float-down'}[inputMode == true]">+ Add Definitions</button>
-          </div> -->
+          <h1>My Dictionary</h1>
         </div>
         <div class="dictionary-content">
-          <!-- <form>
-              <input ng-model="word.content" type="text" placeholder="word"><br>
-              <button class="btn btn-primary btn-success submit-word" ng-click="submitWord()">Save Word</button>
-          </form>
-        </div> -->
           <div ng-repeat="def in myDefinitions" class="card">
             <h3>{{def.word}}</h3>
             <p>{{def.content}}</p>

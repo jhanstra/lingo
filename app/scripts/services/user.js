@@ -35,6 +35,16 @@ module.exports = function($firebase, FIREBASE_URL, $rootScope, $localStorage) {
         console.log("The read failed: " + errorObject.code);
       })
     },
+    doesUidExist: function(uid) {
+      return users.child(uid).once("value", function(snapshot) {
+        var exists = (snapshot.val() !== null);
+        if (exists) { return true}
+          else {return false};
+      })
+    },
+    userExistsCallback: function(uid, exists) {
+
+    },
 
     addDefinition: function(definition, uid) {
       return users.child(uid).child('definitions').push(definition);

@@ -1,0 +1,116 @@
+.landing-page {
+  background:linear-gradient(
+  rgba(20,20,20, 0.6), 
+  rgba(20,20,20, 0.7)
+  ),url(../images/dirt-road.jpg);
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center center;
+  width:100vw;
+  height:100vh;
+  position:relative;
+  display:table;
+  margin:auto;
+  .hello {
+    display:table-cell;
+    vertical-align:middle;
+    position:relative;
+    top:-50px;
+    img {
+      width:40px;
+      margin:5px auto;
+      display:block;
+    }
+    a {
+      text-align:center;
+      display:block;
+      &:hover {
+        text-decoration:none;
+      }
+    }
+    .button {
+      width:100%;
+      margin:10px auto 0px;
+      color:$white;
+      border:none;
+      @include color-opacity($orange,0.8);
+      &:hover, &:focus {
+        @include color-opacity($orange,1.0);
+      }
+    }
+    .button-sign-up {
+      @include color-opacity($green,0.8);
+      &:hover, &:focus {
+        @include color-opacity($green,1.0);
+      }
+    }
+    .button-facebook {
+      display:block;
+      margin:auto;
+      width:100%;
+      @include color-opacity($fb-blue,0.8);
+      color:$white;
+      border:none;
+      &:hover {
+        @include color-opacity($fb-blue,1.0);
+      }
+    }
+    p {
+      color:$white;
+      text-align:center;
+      margin:5px 0px;
+      margin-top:5px;
+    }
+  }
+  h2 {
+    color:$white;
+    font-size:3.5rem;
+    text-align:center;
+    margin:auto;
+  }
+  h3 {
+    font-size:2.4rem;
+    color:$grayscale7;
+    text-align:center;
+    font-weight:100;
+    margin:0 auto 30px;
+  }
+  .form-container {
+    width:300px;
+    text-align:center;
+    margin:0 auto;
+    display:block;
+    position:relative;
+    form {
+      margin:30px 0px;
+    }
+    .facebook-form {
+      margin:0px;
+    }
+    div {
+      display:inline-block;
+      float:left;
+      width:50%;
+      padding:20px;
+    }
+    h3 {
+      display:inline;
+      padding-bottom:10px;
+      border-bottom:1px solid $white;
+      margin-bottom:30px;
+    }
+    input {
+      background-color:rgba(255,255,255,0.7);
+      border:none;
+      color:#333;
+      margin:10px 0px 0px;
+    }
+    input::-webkit-input-placeholder {
+      color:#333;
+    }
+    input:focus {
+      outline: none;
+      border:1px solid #0073ed;
+    }
+  }
+}

@@ -30,7 +30,7 @@ app.controller('MainCtrl', ['$rootScope','$scope','$firebase','$location','Auth'
 app.controller('SidebarCtrl', ['$rootScope','$scope','$location', require('./controllers/sidebarcontroller')]);
 //app.controller('AddCtrl', ['$rootScope','$scope','$location','Definition','Word','User', require('./controllers/addcontroller')]);
 app.controller('MyDictionaryCtrl', ['$rootScope','$scope','$location','Definition','Word','User', require('./controllers/mycontroller')]);
-app.controller('GlobalDictionaryCtrl', ['$rootScope','$scope', require('./controllers/globalcontroller')]);
+app.controller('GlobalDictionaryCtrl', ['$rootScope','$scope','Definition','$firebase','FIREBASE_URL', require('./controllers/globalcontroller')]);
 app.controller('WordCtrl', ['$rootScope','$scope','$location','Definition','Word', require('./controllers/wordcontroller')]);
 app.controller('AuthCtrl', ['$rootScope','$scope','$location','Auth','User', require('./controllers/authcontroller')]);
 

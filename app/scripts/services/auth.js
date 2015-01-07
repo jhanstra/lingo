@@ -44,22 +44,24 @@ module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_U
       },
 
       signIn: function (user) {
-        return auth.$authWithPassword(user).then(function(authData) {
+        return auth.$authWithPassword(user)
+        .then(function(authData) {
           User.findByUid(authData.uid);
           $location.path('/');
-        }).catch(function(error) {
+        })
+        .catch(function(error) {
           console.log("Authentication failed: ", error);
         });
       },
 
       signOut: function () {
         auth.$unauth();
-        $rootScope.$storage.currentUser = null;
+        $rootScope.$storage.currentUser = {};
       },
 
       signInWithFacebook: function () {
         return auth.$authWithOAuthPopup("facebook",{ scope: "email"}).then(function(authData) {
-          console.log("Logged in as:", authData.facebook.email);
+          console.log("Signing in as:", authData.facebook.email);
           var nameArray = authData.facebook.displayName.split(' ');
           var currentDate = new Date();
           var user = {
@@ -75,17 +77,14 @@ module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_U
           + currentDate.getMinutes() + ":" + currentDate.getSeconds();
           user.firstName = nameArray[0];
           user.lastName = nameArray[nameArray.length - 1];
-          User.create(user, authData);
+          console.log('does it exist?', User.doesUidExist(user.uid));
+          //if ( User.doesUidExist(user.uid)) {
+            User.create(user, authData);
+
           $rootScope.$storage.currentUser = user;
           console.log('Current User: ', $rootScope.$storage.currentUser);
 
-          // ref.child("users").on("value", function(snapshot) {
-          //   console.log(snapshot.val());
-          //   console.log('Current UID: ', $rootScope.$storage.currentUser.uid);
-          //   $rootScope.myDefinitions = snapshot.val();
-          // }, function ( errorObject) {
-          //   console.log('The read failed');
-          // });
+
 
           $location.path('/');
         }).catch(function(error) {
@@ -95,14 +94,14 @@ module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_U
     };
 
 
-    $rootScope.$on('$firebaseAuth:$authWithPassword', function(event, user) {
-      console.log('logged in, this is working');
-      angular.copy(user, Auth.user);
-    });
-    $rootScope.$on('$firebaseSimpleLogin:logout', function() {
-      console.log('logged out');
-      angular.copy({}, Auth.user);
-    });
+    // $rootScope.$on('$firebaseAuth:$authWithPassword', function(event, user) {
+    //   console.log('logged in, this is working');
+    //   angular.copy(user, Auth.user);
+    // });
+    // $rootScope.$on('$firebaseSimpleLogin:logout', function() {
+    //   console.log('logged out');
+    //   angular.copy({}, Auth.user);
+    // });
 
     return Auth;
   };

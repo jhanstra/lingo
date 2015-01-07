@@ -18,6 +18,9 @@ module.exports = function ($rootScope, $scope, $location, Auth, User) {
       firstName:'',
       lastName:''
     };
+    
+    $scope.showLogInForm = false;
+    $scope.showSignUpForm = false;
     // var ref = new Firebase('https://lingo-app.firebaseio.com/');
     // ref.child('users').on("value", function(snapshot) {
     //   console.log("Objects:" + snapshot.val());

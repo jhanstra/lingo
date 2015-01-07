@@ -1,6 +1,22 @@
 body {
   background-color:#00254d;
   position:relative;
+  font-size:10px;
+}
+p,a,li,span {
+  font-size:1.4rem;
+}
+h1 {
+  font-size:3.2rem;
+}
+h2 {
+  font-size:2.6rem;
+}
+h3 {
+  font-size:2.2rem;
+}
+h4 {
+  font-size:2rem;
 }
 
 header {
@@ -31,7 +47,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 input, textarea {
   border:none;
-  font-size:1.2em;
+  font-size:1.2rem;
 }
 input:focus, textarea:focus {
   outline:none;
@@ -55,7 +71,7 @@ h3 {
 .message {
   padding-top: 50px;
   text-align: center;
-  font-size: 3em;
+  font-size: 3rem;
   color: #777;
   letter-spacing: -1px;
   font-weight: bold;
@@ -71,7 +87,7 @@ h3 {
   position:relative;
   border-bottom:1px solid rgba(255,255,255,0.3);
   h1 {
-    font-size:2.3em;
+    font-size:2.3rem;
     font-weight:100;
     padding:0px;
     color:$white;
@@ -96,7 +112,7 @@ h3 {
   button {
     padding:12px 35px;
     border:none;
-    font-size:1.1em;
+    font-size:1.1rem;
     margin:20px 10px 0px 0px;
     display:inline-block;
     float:right;
@@ -124,7 +140,7 @@ h3 {
   background-color:#fff;
   padding:5px;
   margin:15px 0px 0px 15px;
-  font-size:1.7em;
+  font-size:1.7rem;
   width:50%;
 }
 .definition-input {
@@ -133,16 +149,16 @@ h3 {
 .submit-word {
   padding:12px 20px;
   margin:15px 0px 0px 15px;
-  font-size:1.2em;
+  font-size:1.2rem;
 }
 .definition {
   margin:3px 0px;
 }
 .definition h3 {
-  font-size:2.3em;
+  font-size:2.3rem;
 }
 .definition p {
-  font-size:1.3em;
+  font-size:1.3rem;
 }
 .word-selector {
   width:50%;
@@ -175,7 +191,7 @@ h3 {
 .new-word {
   width:200px;
   margin:0 auto;
-  font-size:2em;
+  font-size:2rem;
   padding:5px;
 }
 .card {

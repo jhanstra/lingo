@@ -5,7 +5,8 @@
     "sass-bootstrap": "~3.0.0",
     "modernizr": "~2.6.2",
     "jquery": "~1.10.2",
-    "angularfire": "~0.8.2"
+    "angularfire": "~0.8.2",
+    "foundation-apps": "~1.0.2"
   },
   "private": true,
   "devDependencies": {

@@ -1,13 +1,18 @@
 /******* TWITTER BOOTSTRAP *******/
 @import '../../bower_components/sass-bootstrap/lib/bootstrap';
 
+/******* TWITTER BOOTSTRAP *******/
+//@import '../../bower_components/foundation-apps/scss/foundation';
+
 /******* FONT AWESOME *******/
 @import '../../bower_components/font-awesome/scss/font-awesome';
+
+@import 'skeleton';
 
 @import 'variables';
 @import 'main';
 @import 'sidebar';
 @import 'search';
-@import 'promo';
+@import 'landing';
 @import 'addmode';
 @import 'background';

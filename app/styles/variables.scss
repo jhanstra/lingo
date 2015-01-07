@@ -10,6 +10,10 @@ $white: #fff;
 $darkgray: #333;
 
 $fb-blue: #3b5998;
+$fb-blue-dark: #143a99;
+
+$orange: #ed8e3b;
+$green: #3bad29;
 
 /* IMAGES */
 $paper: url('../images/handmade-paper.png');
@@ -60,3 +64,9 @@ $menu6: #8a003e;
 $menu7: #333;
 $menu8: #aaa;
 $menu9: $white;
+
+
+@mixin color-opacity($color, $opacity) {
+  background-color: $color; /* The Fallback */
+  background-color: rgba($color, $opacity);
+}

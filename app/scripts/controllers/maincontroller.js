@@ -71,11 +71,8 @@
       Word.delete(word);
     };
 
-    ref.child("users").child($rootScope.$storage.currentUser.uid).child("definitions").on("value", function(snapshot) {
-      console.log(snapshot.val());
-      console.log('Current UID: ', $rootScope.$storage.currentUser.uid);
-      $rootScope.myDefinitions = snapshot.val();
-    }, function ( errorObject) {
-      console.log('The read failed');
-    });
+      //$scope.myDefinitions = ref.child("users").child('facebook:10152539340115662').child("definitions").$asObject;
+
+
+
 };

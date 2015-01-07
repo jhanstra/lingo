@@ -3,32 +3,36 @@ nav {
   height:100%;
   z-index:1000;
   .fa {
-    font-size:2.5em;
+    font-size:2rem;
   }
 }
 .dock {
-  width:70px;
+  width:48px;
   height:100%;
   position:fixed;
-  background-color:#222;
+  background-color:#000;
 }
 .sidebar {
   height:100%;
   padding:0px;
   margin:0px;
+  .sidebar-logo {
+    padding-left:8px;
+    padding-right:7px;
+    float:left;
+  }
   ul {
     margin:10px 0px 0px 0px;
     padding:0px 0px 0px 0px;
     li {
       display:table;
       position:relative;
-      height:50px;
-      min-width:50px;
-      font-size:0.7em;
-      border:3px solid #555;
+      height:38px;
+      min-width:38px;
+      border:2px solid #555;
       border-radius:0px;
       background-color:transparent;
-      margin:10px;
+      margin:8px 5px;
       border-radius:4px;
       span {
         display:table-cell;
@@ -37,19 +41,19 @@ nav {
       }
       i {
         display:inline-block;
-        padding-left:11px;
-        padding-top:10px;
+        padding-left:8px;
+        padding-top:7px;
         float:left;
       }
       p {
         display:inline-block;
         float:left;
-        font-size:1.8em;
         position:relative;
-        top:10px;
-        padding:0px 20px;
-        font-weight:100;
+        top:8px;
+        padding:0px 30px;
+        font-weight:200;
         letter-spacing:0.06em;
+        font-size:1.3rem;
       }
     }
   }

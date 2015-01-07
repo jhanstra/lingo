@@ -17,6 +17,11 @@
       <div class="form-group">
         <input ng-model="$parent.definition.word" type="text" placeholder="word">
         <textarea ng-model="$parent.definition.content" type="textarea" placeholder="definition"></textarea>
+        <p>Do you want to add your definition to the global dictionary?</p>
+        <input type="radio" ng-model="$parent.definition.isGlobal" name="isGlobal" value="true" class="radio-buttons">
+        <label>Yes</label>
+        <input type="radio" ng-model="$parent.definition.isGlobal" name="isGlobal" value="false" class="radio-buttons">
+        <label>No</label>
         <button class="btn btn-primary btn-success submit-word" ng-click="submitDefinition()">Save Definition</button>
       </div>
     <!-- <form>

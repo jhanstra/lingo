@@ -5,7 +5,15 @@ module.exports = function ($firebase, FIREBASE_URL) {
   var definitions = ref.child("definitions");
 
   var Definition = {
-    all: definitions,
+    all: function() {
+      definitions.on("value", function(snapshot) {
+        console.log(snapshot.val());
+        var results = snapshot.val();
+      }, function( errorObject ) {
+        console.log( errorObject );
+      });
+      return results;
+    },
     create: function (definition) {
         return definitions.push(definition);
     },
