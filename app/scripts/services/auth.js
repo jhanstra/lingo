@@ -14,14 +14,14 @@ module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_U
             user.uid = authData.uid;
             user.authMethod = authData.provider;
             user.password = authData.token;
-            user.definitions = {'example':'an example'};
+            user.definitions = {};
             var currentDate = new Date();
             user.bornAt = currentDate.getDate() + "/" + (currentDate.getMonth() + 1 )
             + "/" + currentDate.getFullYear() + " @ "
             + currentDate.getHours() + ":"
             + currentDate.getMinutes() + ":" + currentDate.getSeconds();
             User.create(user, authData);
-            $rootScope.$storage.currentUser = user;
+            User.findByUid(authData.uid);
             $location.path('/');
           }).catch(function(error) {
             console.log("Authentication failed: ", error);
@@ -57,6 +57,8 @@ module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_U
       signOut: function () {
         auth.$unauth();
         $rootScope.$storage.currentUser = {};
+        //MainCtrl.myDefinitions = {};
+        $location.path('signin');
       },
 
       signInWithFacebook: function () {
@@ -77,14 +79,17 @@ module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_U
           + currentDate.getMinutes() + ":" + currentDate.getSeconds();
           user.firstName = nameArray[0];
           user.lastName = nameArray[nameArray.length - 1];
-          console.log('does it exist?', User.doesUidExist(user.uid));
-          //if ( User.doesUidExist(user.uid)) {
+          //console.log('does it exist?', User.doesUidExist(user.uid));
+          ref.child('users').child(user.uid).on('value', function(snapshot) {
+            var exists = snapshot.val();
+          })
+          if ( typeof exists == undefined ) {
             User.create(user, authData);
-
+          }
           $rootScope.$storage.currentUser = user;
           console.log('Current User: ', $rootScope.$storage.currentUser);
 
-
+          User.findByUid(authData.uid);
 
           $location.path('/');
         }).catch(function(error) {
@@ -93,15 +98,6 @@ module.exports = function ($firebase, $firebaseAuth, User, $location, FIREBASE_U
       }
     };
 
-
-    // $rootScope.$on('$firebaseAuth:$authWithPassword', function(event, user) {
-    //   console.log('logged in, this is working');
-    //   angular.copy(user, Auth.user);
-    // });
-    // $rootScope.$on('$firebaseSimpleLogin:logout', function() {
-    //   console.log('logged out');
-    //   angular.copy({}, Auth.user);
-    // });
 
     return Auth;
   };

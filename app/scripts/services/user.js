@@ -22,18 +22,9 @@ module.exports = function($firebase, FIREBASE_URL, $rootScope, $localStorage) {
       }
     },
     findByUid: function(uid) {
-      console.log(uid);
       var ref = new Firebase('https://lingo-app.firebaseio.com/');
       var users = ref.child("users");
-      return users.child(uid).on("value", function(snapshot) {
-        console.log("UID: ", uid);
-        console.log("Booyah:" + snapshot.val());
-        $rootScope.$storage.currentUser = snapshot.val();
-        console.log("Current User: ", $rootScope.$storage.currentUser);
-        return snapshot.val()
-      }, function(errorObject) {
-        console.log("The read failed: " + errorObject.code);
-      })
+      $rootScope.$storage.currentUser = $firebase(users.child(uid)).$asObject();
     },
     doesUidExist: function(uid) {
       return users.child(uid).once("value", function(snapshot) {

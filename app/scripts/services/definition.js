@@ -21,7 +21,7 @@ module.exports = function ($firebase, FIREBASE_URL) {
       return definitions.child(definitionId);
     },
     delete: function (definition) {
-      return definitions.remove(definition);
+      definitions.$remove(definition.$id);
     }
   };
 

@@ -1,5 +1,11 @@
 body {
-  background-color:#00254d;
+  background:linear-gradient(
+  rgba(20,20,20, 0.6),
+  rgba(20,20,20, 0.7)
+  ),url(../images/dirt-road.jpg);
+  background-repeat:no-repeat;
+  background-size:100%;
+  background-position:fixed;
   position:relative;
   font-size:10px;
 }
@@ -67,13 +73,13 @@ h3 {
 .page {
   position:relative;
   z-index:100;
+  margin-left:55px;
 }
 .message {
   padding-top: 50px;
   text-align: center;
   font-size: 3rem;
   color: #777;
-  letter-spacing: -1px;
   font-weight: bold;
 }
 .dictionary-container {

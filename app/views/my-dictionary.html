@@ -1,6 +1,6 @@
-<div ng-controller="MyDictionaryCtrl as myCtrl">
+<div class="page" ng-controller="MyDictionaryCtrl as myCtrl">
     <add-mode></add-mode>
-    <div class="inner-page col-sm-8 col-xs-12" ng-class="{true: 'blur-it'}[addMode === true]">
+    <div class="row" ng-class="{true: 'blur-it'}[addMode === true]">
       <!-- <div ng-show="inputMode" ng-class="" class="input-word-form">
         <h2>Add a Definition</h2>
         <form>
@@ -17,13 +17,6 @@
                 <h3>Create new word</h3>
               </div>
             </div>
-            <textarea ng-model="definition.content" type="textarea" class="definition-input" placeholder="definition"></textarea><br>
-            <p>Do you want to add your definition to the global dictionary?</p>
-            <input type="radio" ng-model="definition.isGlobal" name="isGlobal" value="true" class="radio-buttons">
-            <label>Yes</label>
-            <input type="radio" ng-model="definition.isGlobal" name="isGlobal" value="false" class="radio-buttons">
-            <label>No</label>
-            <button class="btn btn-primary btn-success submit-word" ng-click="submitDefinition()">Save Definition</button>
         </form>
       </div> -->
       <div class="dictionary-container">
@@ -31,7 +24,7 @@
           <h1>My Dictionary</h1>
         </div>
         <div class="dictionary-content">
-          <div ng-repeat="def in myDefinitions" class="card">
+          <div ng-repeat="def in $storage.currentUser.definitions" class="card">
             <h3>{{def.word}}</h3>
             <p>{{def.content}}</p>
             <button class="btn btn-danger" ng-click="deleteDefinition(def)">delete</button>

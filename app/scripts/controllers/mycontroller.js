@@ -3,6 +3,8 @@ module.exports = function($rootScope, $scope, $location, Definition, Word, User)
   $scope.selectedIndex = 0;
   $scope.wordSearch = false;
 
+  
+
   $scope.selectWord = function(word) {
     // var word = $scope.words[$index];
     $scope.definition.word = word.content;

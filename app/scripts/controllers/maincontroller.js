@@ -59,7 +59,7 @@
       $scope.definition = {};
     };
     $scope.deleteDefinition = function (definition) {
-      Definition.delete(definition);
+      ref.child('definitions').$remove();
     };
 
     $scope.submitWord = function () {
@@ -71,7 +71,7 @@
       Word.delete(word);
     };
 
-      //$scope.myDefinitions = ref.child("users").child('facebook:10152539340115662').child("definitions").$asObject;
+    //$scope.myDefinitions = $firebase(ref.child("users").child($rootScope.$storage.currentUser.uid).child("definitions")).$asObject();
 
 
 

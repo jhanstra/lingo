@@ -3,6 +3,10 @@ var angular = require('angular');
 require('./directives/main');
 var angular_route = require('angular-route');
 var ngStorage = require('ng-storage');
+var firebase = require('firebase');
+// Jared was here
+var angularfire = require('angularfire');
+
 
 
 

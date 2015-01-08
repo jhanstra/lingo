@@ -1,4 +1,4 @@
-<div ng-controller="GlobalDictionaryCtrl as globalCtrl">
+<div class="page" ng-controller="GlobalDictionaryCtrl as globalCtrl">
   <!-- <add-mode></add-mode>
   <div class="inner-page col-sm-8 col-xs-12" ng-class="{true: 'blur-it'}[addMode === true]">
     <div class="dictionary-container">
@@ -6,7 +6,7 @@
         <h1>Profile</h1>
       </div> -->
   <add-mode></add-mode>
-  <div class="inner-page col-sm-8 col-xs-12" ng-class="{true: 'blur-it'}[addMode === true]">
+  <div ng-class="{true: 'blur-it'}[addMode === true]">
     <div class="dictionary-container">
       <div class="page-header-container">
         <h1>{{ $storage.currentUser.displayName }}</h1>
