@@ -19,39 +19,37 @@
   background:$white;
   opacity:0.8;
 }
-.top-search::-webkit-input-placeholder {
-   color: $text;
-   font-weight:200;
-   font-size:.7rem;
-   position:relative;
-   top:10px;
-}
-:-moz-placeholder { /* Firefox 18- */
-   color:$text;
-   font-weight:200;
-   font-size:.7rem;
-   position:relative;
-   top:10px;
-}
-::-moz-placeholder {  /* Firefox 19+ */
-   color: $text;
-   font-weight:200;
-   font-size:.7rem;
-   position:relative;
-   top:10px;
-}
-:-ms-input-placeholder {
-   color: $text;
-   font-weight:200;
-   font-size:.7rem;
-   position:relative;
-   top:10px;
-}
-.top-search:focus {
-  outline:none;
-}
-.side-search {
-  height:50px;
+// .top-search::-webkit-input-placeholder {
+//    color: $text;
+//    font-weight:200;
+//    font-size:1.6rem;
+//    position:relative;
+// }
+// :-moz-placeholder { /* Firefox 18- */
+//    color:$text;
+//    font-weight:200;
+//    font-size:1.6rem;
+//    position:relative;
+// }
+// ::-moz-placeholder {  /* Firefox 19+ */
+//    color: $text;
+//    font-weight:200;
+//    font-size:1.6rem;
+//    position:relative;
+//    top:10px;
+// }
+// :-ms-input-placeholder {
+//    color: $text;
+//    font-weight:200;
+//    font-size:1.6rem;
+//    position:relative;
+//    top:10px;
+// }
+// .top-search:focus {
+//   outline:none;
+// }
+input[type="search"].side-search {
+  height:45px;
   font-size:3rem;
   text-align:center;
   font-weight:500;
@@ -62,33 +60,24 @@
   color:$darkgray;
   position:fixed;
   background:$menu0;
-  top:10px;
 }
 .side-search::-webkit-input-placeholder {
    color: $grayscale8;
-   font-weight:200;
-   font-size:.7rem;
+   font-size:2.5rem;
    position:relative;
-   top:10px;
 }
 .side-search:-moz-placeholder { /* Firefox 18- */
    color:$grayscale8;
-   font-weight:200;
-   font-size:.7rem;
+   font-size:2.5rem;
    position:relative;
-   top:10px;
 }
 .side-search::-moz-placeholder {  /* Firefox 19+ */
    color: $grayscale8;
-   font-weight:200;
-   font-size:.7rem;
+   font-size:2.5rem;
    position:relative;
-   top:10px;
 }
 .side-search:-ms-input-placeholder {
    color: $grayscale8;
-   font-weight:200;
-   font-size:.7rem;
+   font-size:2.5rem;
    position:relative;
-   top:10px;
 }

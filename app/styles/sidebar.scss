@@ -3,11 +3,11 @@ nav {
   height:100%;
   z-index:1000;
   .fa {
-    font-size:2rem;
+    font-size:2.4rem;
   }
 }
 .dock {
-  width:48px;
+  width:55px;
   height:100%;
   position:fixed;
   background-color:#000;
@@ -27,12 +27,12 @@ nav {
     li {
       display:table;
       position:relative;
-      height:38px;
-      min-width:38px;
-      border:2px solid #555;
+      height:45px;
+      min-width:45px;
+      //border:2px solid #555;
       border-radius:0px;
       background-color:transparent;
-      margin:8px 5px;
+      margin:9px;
       border-radius:4px;
       span {
         display:table-cell;
@@ -41,19 +41,19 @@ nav {
       }
       i {
         display:inline-block;
-        padding-left:8px;
-        padding-top:7px;
+        padding-left:10px;
+        padding-top:11px;
         float:left;
       }
       p {
         display:inline-block;
         float:left;
         position:relative;
-        top:8px;
+        top:9px;
         padding:0px 30px;
-        font-weight:200;
-        letter-spacing:0.06em;
-        font-size:1.3rem;
+        font-weight:400;
+        //letter-spacing:0.06em;
+        font-size:1.6rem;
       }
     }
   }
@@ -65,23 +65,23 @@ nav {
   opacity:1;
 }
 #search-item {
-  border-color:$menu0;
-  color:$menu0;
+  //background-color:$menu0;
+  color:darken($menu0, 10%);
 }
 #search-item:hover {
   background-color:$menu0;
-  color:$white;
+  color:$black;
 }
 #home-item {
-  border-color:$menu1;
-  color:$menu1;
+  //background-color:$menu1;
+  color:darken($menu1, 10%);
 }
 #home-item:hover {
   background-color:$menu1;
   color:$white;
 }
 #mydictionary-item {
-  border-color:$menu2;
+  //background-color:$menu2;
 /*   background-color:rgba(0,0,0,0.3);
 background-image:\$feather;
 background-size:500%; */
