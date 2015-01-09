@@ -21,13 +21,16 @@
       </div> -->
       <div class="dictionary-container">
         <div class="page-header-container">
+          <i class="fa fa-home"></i>
           <h1>My Dictionary</h1>
         </div>
         <div class="dictionary-content">
-          <div ng-repeat="def in $storage.currentUser.definitions" class="card">
-            <h3>{{def.word}}</h3>
-            <p>{{def.content}}</p>
-            <button class="btn btn-danger" ng-click="deleteDefinition(def)">delete</button>
+          <div ng-repeat="def in $storage.currentUser.definitions" class="definition card-box col-xs-12 col-sm-6 col-lg-4">
+            <div class="card">
+              <h3>{{def.word}}</h3>
+              <p>{{def.content}}</p>
+              <!-- <button class="btn btn-danger" ng-click="deleteDefinition(def)">delete</button> -->
+            </div>
           </div>
         </div>
       </div>

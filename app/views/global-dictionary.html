@@ -1,19 +1,22 @@
 <div class="page" ng-controller="GlobalDictionaryCtrl as globalCtrl">
   <add-mode></add-mode>
   <div class="row" ng-class="{true: 'blur-it'}[addMode === true]">
+
     <div class="dictionary-container">
       <div class="page-header-container">
           <h1>Global Dictionary {{ searchTerm}}</h1>
       </div>
       <div class="dictionary-content">
-        <div ng-repeat="def in globalDefinitions" class="definition card">
-          <span><h3>{{def.word}}</h3>
-            <p>{{def.content}}</p>
-          <!-- <div ng-repeat="definition in definitions" x>
-            <p ng-show="word.content === definition.word" class="card inner">{{ definition.content }}</p>
-            <p>{{ definition.$id }}</p>
-          </div> -->
-        </div>
+          <div ng-repeat="def in globalDefinitions" class="definition card-box col-xs-12 col-sm-6 col-lg-4">
+            <div class="card">
+              <span><h3>{{def.word}}</h3>
+                <p>{{def.content}}</p>
+              <!-- <div ng-repeat="definition in definitions" x>
+                <p ng-show="word.content === definition.word" class="card inner">{{ definition.content }}</p>
+                <p>{{ definition.$id }}</p>
+              </div> -->
+            </div>
+          </div>
         <!-- <div ng-repeat="definition in definitions | orderBy:'word' | filter:{word:searchTerm}" class="definition card" ng-show="definition.isGlobal">
           <h3>{{definition.word}}</h3>
           <p>{{definition.definition}}</p>
