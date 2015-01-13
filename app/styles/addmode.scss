@@ -12,9 +12,23 @@
   .add-chooser {
     text-align:center;
     margin:auto;
+    margin-left:-55px;
     button {
       display:inline-block;
       margin:30px 5px;
+    }
+  }
+  h2 {
+    border-bottom:2px solid #ccc;
+  }
+  input, textarea {
+    width:100%;
+    text-align:left;
+    text-transform:none;
+    margin:10px auto;
+    color:#222;
+    &:hover {
+      cursor:text;
     }
   }
 }
